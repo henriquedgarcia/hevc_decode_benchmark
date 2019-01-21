@@ -7,3 +7,5 @@
 clans_*.txt
 *.jpg
 desktop.ini
+.idea
+.vscode
