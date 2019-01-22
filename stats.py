@@ -6,7 +6,7 @@ size = '3840x2160'
 fps = 32
 
 average = {}
-
+averages = {}
 for gop in [32, 64, 96, 128]:
     for qp in [20, 25, 30, 35, 40]:
         for tile in ['1x1', '2x3', '4x6', '6x9', '8x12']:
@@ -21,21 +21,22 @@ for gop in [32, 64, 96, 128]:
                     sys_time = []
 
                     for line in f:
-                        print('Conteúdo = ' + str(line), end='')
+                        # print('Conteúdo = ' + str(line), end='')
                         if line in '\n':
                             continue
 
                         elif 'real' in line:
-                            real_time.append(int(line[:-2].split('m')[1]))
+                            real_time.append(float(line[:-2].split('m')[1]))
 
                         elif 'user'  in line:
-                            user_time.append(int(line[:-2].split('m')[1]))
+                            user_time.append(float(line[:-2].split('m')[1]))
 
                         elif 'sys' in line:
-                            sys_time.append(int(line[:-2].split('m')[1]))
+                            sys_time.append(float(line[:-2].split('m')[1]))
 
-                average['real_time'] = np.average(real_time)
-                average['user_time'] = np.average(user_time)
-                average['sys_time'] = np.average(sys_time)
+                average[name] = {}
+                average[name]['real_time'] = np.average(real_time)
+                average[name]['user_time'] = np.average(user_time)
+                average[name]['sys_time'] = np.average(sys_time)
 
-                print('')
+                print('{} \nrt = {}\tut = {}\tst = {}'.format(name, average[name]['real_time'], average[name]['real_time'], average[name]['sys_time']))
