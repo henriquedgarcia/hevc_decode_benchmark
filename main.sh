@@ -6,11 +6,11 @@ fps=32
 start_time=40
 
 # This convert original vídeo to YUV420 format
-mkdir -p yuv
-for duration in 1 2 3 4 5; do	
-	name="yuv/clans_"$size"_"$fps"_"$duration"s"
-	ffmpeg -ss $start_time -i $input_file -r $fps $name.yuv
-done
+# mkdir -p yuv
+# for duration in 1 2 3 4 5; do	
+	# name="yuv/clans_"$size"_"$fps"_"$duration"s"
+	# ffmpeg -ss $start_time -i $input_file -r $fps $name.yuv
+# done
 
 # This encode YUV video in hevc tiled scheme and tiles splited in mp4 container tracks
 mkdir -p mp4
@@ -23,12 +23,12 @@ for tile in 1x1 2x3 4x6 6x9 8x12; do
 	out_name="clans_"$size"_"$fps"_"$tile"_gop"$gop"_qp"$qp
 	
 	# Encode to HEVC
-	input="--input-res="$size" --input-fps "$fps" --input clans_"$size"_"$fps"_"$gop".yuv"
-	params="-p "$gop" --preset veryslow --no-open-gop --tiles "$tile" --slices tiles --mv-constraint frametilemargin -q "$qp
+	input="--input-res="$size" --input-fps "$fps" --input clans_3840x2160_32.yuv"
+	params="--threads 1 -p "$gop" --preset veryslow --no-open-gop --tiles "$tile" --slices tiles --mv-constraint frametilemargin -q "$qp
 	output="--output hevc/"$out_name".hevc"
 	echo '{ kvazaar '$input $params $output' 2> '$out_name'.txt ; } 2>> hevc/'$out_name'_log.txt'; echo
 	# read -n 1 -s    # make a pause	
-	kvazaar $input $params $output 2> "hevc/"$out_name"_log.txt"
+	kvazaar $input $params $output #2> "hevc/"$out_name"_log.txt"
 	echo
 	
 	# Split tiles in mp4 container tracks
@@ -52,23 +52,23 @@ done
 done
 
 # measure time of decode
-read -n 1 -s
-for gop in 32 64 96 128; do
-for qp in 20 25 30 35 40; do
-for tile in 1x1 2x3 4x6 6x9 8x12; do
-	out_name="clans_"$size"_"$fps"_"$tile"_gop"$gop"_qp"$qp
+# read -n 1 -s
+# for gop in 32 64 96 128; do
+# for qp in 20 25 30 35 40; do
+# for tile in 1x1 2x3 4x6 6x9 8x12; do
+	# out_name="clans_"$size"_"$fps"_"$tile"_gop"$gop"_qp"$qp
 	
-	for ((i = 0 ; i < 20 ; i++)); do
-		echo
-		echo $out_name is decoding $i times	
-		echo
-		{ time ffmpeg -hwaccel cuvid -i $out_name -f null - 2>1; } 2>> "$out_name"_dectime_cuvid.txt
-		{ time ffmpeg -i $out_name -f null - 2>1; } 2>> "$out_name"_dectime_nohwaccel.txt
-	done
+	# for ((i = 0 ; i < 20 ; i++)); do
+		# echo
+		# echo $out_name is decoding $i times	
+		# echo
+		# { time ffmpeg -hwaccel cuvid -i $out_name -f null - 2>1; } 2>> "$out_name"_dectime_cuvid.txt
+		# { time ffmpeg -i $out_name -f null - 2>1; } 2>> "$out_name"_dectime_nohwaccel.txt
+	# done
 
-done
-done
-done
+# done
+# done
+# done
 
 
 
