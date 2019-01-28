@@ -11,7 +11,8 @@ clans_*.txt
 desktop.ini
 .idea
 .vscode
-
+*.png
+*.pro
 *~
 *.autosave
 *.a
