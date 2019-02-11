@@ -6,6 +6,7 @@
 *.yuv
 *.mpd
 *.hevc.txt
+tools/
 clans_*.txt
 *.jpg
 desktop.ini
