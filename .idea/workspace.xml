@@ -44,7 +44,13 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Henrique D. Garcia &lt;henriquedgarcia@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
@@ -90,6 +96,9 @@
       </list>
     </option>
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="2ad05221-1ee7-4752-8bad-9d7de627c52c" name="Default Changelist" comment="" />
@@ -97,7 +106,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1557859964662</updated>
-      <workItem from="1557859967874" duration="4470000" />
+      <workItem from="1557859967874" duration="4728000" />
     </task>
     <task id="LOCAL-00001" summary="upgrading destilador folders">
       <created>1557877182158</created>
@@ -106,11 +115,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557877182158</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="upgrading project folders">
+      <created>1557877779266</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1557877779266</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4470000" />
+    <option name="totallyTimeSpent" value="4728000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1682" height="1000" extended-state="6" />
@@ -148,6 +164,7 @@
       <path value="$PROJECT_DIR$/exp5 - using bitrate/bin/gop" />
     </ignored-roots>
     <MESSAGE value="upgrading destilador folders" />
-    <option name="LAST_COMMIT_MESSAGE" value="upgrading destilador folders" />
+    <MESSAGE value="upgrading project folders" />
+    <option name="LAST_COMMIT_MESSAGE" value="upgrading project folders" />
   </component>
 </project>
