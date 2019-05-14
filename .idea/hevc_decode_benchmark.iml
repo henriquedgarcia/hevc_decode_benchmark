@@ -24,6 +24,7 @@
       <excludeFolder url="file://$MODULE_DIR$/exp5 - using bitrate/original" />
       <excludeFolder url="file://$MODULE_DIR$/exp5 - using bitrate/yuv-cropped" />
       <excludeFolder url="file://$MODULE_DIR$/exp5 - using bitrate/yuv-full" />
+      <excludeFolder url="file://$MODULE_DIR$/exp6 - cropeds yuv/hevc" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

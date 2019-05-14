@@ -1,0 +1,5 @@
+[rawvideo @ 000001ce6b1eb980] Estimating duration from bitrate, this may be inaccurate
+Input #0, rawvideo, from 'yuv\pac_man.yuv':
+  Duration: 00:01:00.00, start: 0.000000, bitrate: 3583180 kb/s
+    Stream #0:0: Video: rawvideo (I420 / 0x30323449), yuv420p, 4320x2160, 3583180 kb/s, 32 tbr, 32 tbn, 32 tbc
+File 'hevc\pac_man_6x4_1500000\pac_man_6x4_1500000_tile1.hevc' already exists. Exiting.
