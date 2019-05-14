@@ -8,7 +8,7 @@ fps = 32
 tiles = ['1x1', '2x3', '4x6', '6x9', '8x12']
 gops = [32, 64, 96, 128]
 qps = [20, 25, 30, 35, 40]
-accells = ['nohwaccel', 'cuvid']
+accells = ['none', 'cuvid', 'vaapi']
 
 
 def main():

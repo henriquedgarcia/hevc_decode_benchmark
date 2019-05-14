@@ -12,8 +12,8 @@ accells = ['nohwaccel', 'cuvid']
 
 
 def main():
-    # collect_data()
-    graph1()
+    collect_data()
+    # graph1()
     # graph1a()
     # graph2()
     # graph2a()

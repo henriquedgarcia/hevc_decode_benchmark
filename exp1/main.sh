@@ -6,71 +6,92 @@ fps=32
 start_time=40
 
 # This convert original vídeo to YUV420 format
-mkdir -p yuv
-for duration in 1 2 3 4 5; do	
-	name="yuv/clans_"$size"_"$fps"_"$duration"s"
-	ffmpeg -ss $start_time -i $input_file -r $fps $name.yuv
-done
+# mkdir -p yuv
+# for duration in 1 2 3 4 5; do	
+	# name="yuv/clans_"$size"_"$fps"_"$duration"s"
+	# ffmpeg -ss $start_time -i $input_file -r $fps $name.yuv
+# done
 
 # This encode YUV video in hevc tiled scheme and tiles splited in mp4 container tracks
-mkdir -p mp4
-mkdir -p hevc
-for gop in 32 64 96 128; do
-for qp in 20 25 30 35 40; do
-for tile in 1x1 2x3 4x6 6x9 8x12; do
-	# todo: Corrigir loop em função das novas durações
-	# corrigir função de segmentação
-	out_name="clans_"$size"_"$fps"_"$tile"_gop"$gop"_qp"$qp
-	
-	# Encode to HEVC
-	input="--input-res="$size" --input-fps "$fps" --input clans_"$size"_"$fps"_"$gop".yuv"
-	params="-p "$gop" --preset veryslow --no-open-gop --tiles "$tile" --slices tiles --mv-constraint frametilemargin -q "$qp
-	output="--output hevc/"$out_name".hevc"
-	echo '{ kvazaar '$input $params $output' 2> '$out_name'.txt ; } 2>> hevc/'$out_name'_log.txt'; echo
-	# read -n 1 -s    # make a pause	
-	kvazaar $input $params $output 2> "hevc/"$out_name"_log.txt"
-	echo
-	
-	# Split tiles in mp4 container tracks
-	echo 'MP4Box -add '$out_name'.hevc:split_tiles -new mp4/'$out_name'.mp4'
-	# read -n 1 -s
-	MP4Box -add hevc/"$out_name".hevc:split_tiles -new mp4/"$out_name".mp4
-	echo
-	
-	# Segment mp4 in dash segments
+# mkdir -p mp4
+# mkdir -p hevc
+# for gop in 32 64 96 128; do
+# for qp in 20 25 30 35 40; do
+# for tile in 1x1 2x3 4x6 6x9 8x12; do
+	# # todo: Corrigir loop em função das novas durações
+	# # corrigir função de segmentação
 	# out_name="clans_"$size"_"$fps"_"$tile"_gop"$gop"_qp"$qp
-	# time=$((1000*gop/32))
-	# echo 
-	# echo mkdir -p "$out_name"
-	# echo MP4Box -dash $time -profile live -out "$out_name"/clans.mpd $out_name.mp4
-	# read -n 1 -s
-	# mkdir -p "$out_name"
-	# MP4Box -dash "$time" -profile live -out "$out_name"/clans.mpd "$out_name".mp4
+	
+	# # Encode to HEVC
+	# input="--input-res="$size" --input-fps "$fps" --input clans_"$size"_"$fps"_"$gop".yuv"
+	# params="-p "$gop" --preset veryslow --no-open-gop --tiles "$tile" --slices tiles --mv-constraint frametilemargin -q "$qp
+	# output="--output hevc/"$out_name".hevc"
+	# echo '{ kvazaar '$input $params $output' 2> '$out_name'.txt ; } 2>> hevc/'$out_name'_log.txt'; echo
+	# # read -n 1 -s    # make a pause	
+	# kvazaar $input $params $output 2> "hevc/"$out_name"_log.txt"
 	# echo
-done
-done
-done
+	
+	# # Split tiles in mp4 container tracks
+	# echo 'MP4Box -add '$out_name'.hevc:split_tiles -new mp4/'$out_name'.mp4'
+	# # read -n 1 -s
+	# MP4Box -add hevc/"$out_name".hevc:split_tiles -new mp4/"$out_name".mp4
+	# echo
+	
+	# # Segment mp4 in dash segments
+	# # out_name="clans_"$size"_"$fps"_"$tile"_gop"$gop"_qp"$qp
+	# # time=$((1000*gop/32))
+	# # echo 
+	# # echo mkdir -p "$out_name"
+	# # echo MP4Box -dash $time -profile live -out "$out_name"/clans.mpd $out_name.mp4
+	# # read -n 1 -s
+	# # mkdir -p "$out_name"
+	# # MP4Box -dash "$time" -profile live -out "$out_name"/clans.mpd "$out_name".mp4
+	# # echo
+# done
+# done
+# done
 
 # measure time of decode
-read -n 1 -s
-for gop in 32 64 96 128; do
-for qp in 20 25 30 35 40; do
-for tile in 1x1 2x3 4x6 6x9 8x12; do
-	out_name="clans_"$size"_"$fps"_"$tile"_gop"$gop"_qp"$qp
+# read -n 1 -s
+# for gop in 32 64 96 128; do
+# for qp in 20 25 30 35 40; do
+# for tile in 1x1 2x3 4x6 6x9 8x12; do
+	# out_name="clans_"$size"_"$fps"_"$tile"_gop"$gop"_qp"$qp
 	
-	for ((i = 0 ; i < 20 ; i++)); do
+	# for ((i = 0 ; i < 20 ; i++)); do
+		# echo
+		# echo $out_name is decoding $i times	
+		# echo
+		# { time ffmpeg -hwaccel cuvid -i $out_name -f null - 2>1; } 2>> "$out_name"_dectime_cuvid.txt
+		# { time ffmpeg -i $out_name -f null - 2>1; } 2>> "$out_name"_dectime_nohwaccel.txt
+	# done
+# # clans_3840x2160_32_1x1_gop32_qp25.hevc
+# done
+# done
+# done
+
+# measure time of decode
+#~ read -n 1 -s
+mkdir -p dectime
+for ((i = 1 ; i < 51 ; i++)); do
+	for gop in 32 64 96 128; do
+	for qp in 20 25 30 35 40; do
+	for tile in 1x1 2x3 4x6 6x9 8x12; do
+		out_name="clans_"$size"_"$fps"_"$tile"_gop"$gop"_qp"$qp	
+		in_name="hevc/"$out_name".hevc"
 		echo
-		echo $out_name is decoding $i times	
-		echo
-		{ time ffmpeg -hwaccel cuvid -i $out_name -f null - 2>1; } 2>> "$out_name"_dectime_cuvid.txt
-		{ time ffmpeg -i $out_name -f null - 2>1; } 2>> "$out_name"_dectime_nohwaccel.txt
+		echo Decoding $in_name $i times	
+		for hw in cuvid none vaapi; do
+		for t in 0 1; do
+			# read -n 1 -s
+			echo accel= $hw, threads=$t
+			{ time ffmpeg -v quiet -stats -threads $t -hwaccel $hw -i $in_name -threads 1 -f null - 2>1 ; } 2>> dectime/"$out_name"_dectime_"$hw"_"$t".txt
+		done
+		done
 	done
-
+	done
+	done
 done
-done
-done
-
-
 
 
 
