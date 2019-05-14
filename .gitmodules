@@ -1,0 +1,39 @@
+[submodule "tools/SITI-1"]
+	path = tools/SITI-1
+	url = https://github.com/henriquedgarcia/SITI-1.git
+[submodule "tools/SITI"]
+	path = tools/SITI
+	url = https://github.com/henriquedgarcia/SITI.git
+[submodule "tools/gpac"]
+	path = tools/gpac
+	url = https://github.com/henriquedgarcia/gpac.git
+[submodule "tools/xmar-360transformations"]
+	path = tools/xmar-360transformations
+	url = https://github.com/henriquedgarcia/360Transformations.git
+[submodule "tools/samsung-360tools"]
+	path = tools/samsung-360tools
+	url = https://github.com/henriquedgarcia/360tools.git
+[submodule "tools/360video-edge-rendering"]
+	path = tools/360video-edge-rendering
+	url = https://github.com/henriquedgarcia/360video-edge-rendering.git
+[submodule "tools/GitlHEVCAnalyzer"]
+	path = tools/GitlHEVCAnalyzer
+	url = https://github.com/lheric/GitlHEVCAnalyzer.git
+[submodule "tools/opencv_contrib"]
+	path = tools/opencv_contrib
+	url = https://github.com/opencv/opencv_contrib.git
+[submodule "tools/FFmpeg"]
+	path = tools/FFmpeg
+	url = https://github.com/FFmpeg/FFmpeg.git
+[submodule "tools/kvazaar"]
+	path = tools/kvazaar
+	url = https://github.com/ultravideo/kvazaar.git
+[submodule "tools/hevcesbrowser"]
+	path = tools/hevcesbrowser
+	url = https://github.com/virinext/hevcesbrowser.git
+[submodule "tools/openHEVC"]
+	path = tools/openHEVC
+	url = https://github.com/OpenHEVC/openHEVC.git
+[submodule "tools/opencv"]
+	path = tools/opencv
+	url = https://github.com/opencv/opencv.git

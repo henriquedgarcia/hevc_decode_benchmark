@@ -2,22 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ad05221-1ee7-4752-8bad-9d7de627c52c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/exp3 - video_segmentado/cria_segmento.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exp6 - cropeds yuv/1-encode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exp6 - cropeds yuv/5-decode.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exp6 - cropeds yuv/stat.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exp7 - same exp5 only 10 sec/1-uncompress.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exp7 - same exp5 only 10 sec/5-decode2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exp7 - same exp5 only 10 sec/decode-rate-single.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/exp7 - same exp5 only 10 sec/decode.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/360video-edge-rendering" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/FFmpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/GitlHEVCAnalyzer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/SITI" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/SITI-1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/gpac" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/hevcesbrowser" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/kvazaar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/openHEVC" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/opencv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/opencv_contrib" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/samsung-360tools" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tools/xmar-360transformations" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/hevc_decode_benchmark.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hevc_decode_benchmark.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp7 - same exp5 only 10 sec/5-decode.sh" beforeDir="false" afterPath="$PROJECT_DIR$/exp7 - same exp5 only 10 sec/5-decode.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp7 - same exp5 only 10 sec/stats2.py" beforeDir="false" afterPath="$PROJECT_DIR$/exp7 - same exp5 only 10 sec/stats2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp7 - same exp5 only 10 sec/utils/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/exp7 - same exp5 only 10 sec/utils/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp8- novos formatos de tiles - verificar resultados anteriores/4-encode.py" beforeDir="false" afterPath="$PROJECT_DIR$/exp8- novos formatos de tiles - verificar resultados anteriores/4-encode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/yuv/SITI/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/yuv/SITI/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/yuv/SITI/siti.py" beforeDir="false" afterPath="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/yuv/SITI/siti.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp5 - using bitrate/bin/SITI" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp5 - using bitrate/bin/gop" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/exp1/dectime/" />
     <ignored path="$PROJECT_DIR$/exp1/hevc/" />
@@ -59,7 +61,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1376" />
@@ -78,11 +80,6 @@
             <path>
               <item name="hevc_decode_benchmark" type="b2602c69:ProjectViewProjectNode" />
               <item name="hevc_decode_benchmark" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="hevc_decode_benchmark" type="b2602c69:ProjectViewProjectNode" />
-              <item name="hevc_decode_benchmark" type="462c0819:PsiDirectoryNode" />
-              <item name="exp8.5 - Experimento para reunião" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -115,21 +112,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1557859964662</updated>
-      <workItem from="1557859967874" duration="1855000" />
+      <workItem from="1557859967874" duration="4055000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1855000" />
+    <option name="totallyTimeSpent" value="4055000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1682" height="1000" extended-state="6" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.249694" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.249694" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
+      <window_info active="true" anchor="bottom" id="Version Control" visible="true" weight="0.32912844" />
       <window_info anchor="bottom" id="Python Console" />
       <window_info anchor="bottom" id="Terminal" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
