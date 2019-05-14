@@ -16,6 +16,9 @@
       <excludeFolder url="file://$MODULE_DIR$/exp1/tile_none_singlethread" />
       <excludeFolder url="file://$MODULE_DIR$/exp1/tile_vaapi_auto" />
       <excludeFolder url="file://$MODULE_DIR$/exp1/tile_vaapi_singlethread" />
+      <excludeFolder url="file://$MODULE_DIR$/exp2/hevc" />
+      <excludeFolder url="file://$MODULE_DIR$/exp4/dash" />
+      <excludeFolder url="file://$MODULE_DIR$/exp4/hevc" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
