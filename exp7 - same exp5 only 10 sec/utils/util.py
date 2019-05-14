@@ -1,6 +1,7 @@
 import json
 import os
 import platform
+import queue
 import subprocess
 import time
 
@@ -9,11 +10,11 @@ def check_system():
     if platform.system() == 'Windows':
         sl = '\\'
         ffmpeg = 'ffmpeg.exe'
-        mp4box = 'C:\\"Program Files"\\GPAC\\MP4Box.exe'
-        mp4client = 'C:\\"Program Files"\\GPAC\\MP4Client.exe'
+        mp4box = '"C:\\Program Files\\GPAC\\MP4Box.exe"'
         kvazaar = 'bin\\kvazaar.exe'
         siti = 'bin\\SITI.exe'
         cp = 'copy /y'
+        mp4client = 'C:\\"Program Files"\\GPAC\\MP4Client.exe'
     else:
         sl = '/'
         ffmpeg = 'ffmpeg'
@@ -45,7 +46,7 @@ def run(command, hevc_video, ext, overwrite=False, mode='w'):
             try:
                 with open(hevc_video + '.log', mode, encoding='utf-8') as f:
                     print(command)
-                    subprocess.run(command, shell=True, stdout=f, stderr=subprocess.STDOUT)
+                    # subprocess.run(command, shell=True, stdout=f, stderr=subprocess.STDOUT)
                 break
             except FileNotFoundError:
                 print(f'Tentativa {attempts + 1}. Erro ao abrir o arquivo {hevc_video + ".log"}')

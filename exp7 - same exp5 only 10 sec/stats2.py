@@ -4,8 +4,8 @@ import os
 import json
 import numpy as np
 import matplotlib.pyplot as plt
-
 from utils import util
+from utils import util_stats
 
 programs = util.check_system()
 sl = programs['sl']
@@ -32,11 +32,11 @@ videos = {"rollercoaster": 0,
 
 
 def main():
-    # collect_data()
+    collect_data()
     # grafico do tamanho do tiles pelo tempo
     # graph1()
     # graph2()
-    graph3()
+    # graph3()
 
 
 def graph1():

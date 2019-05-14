@@ -4,6 +4,7 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/exp5 - using bitrate/bin/SITI" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/exp5 - using bitrate/bin/gop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/yuv/SITI" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/tools/360tools" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/tools/360video-edge-rendering" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/tools/GitlHEVCAnalyzer" vcs="Git" />

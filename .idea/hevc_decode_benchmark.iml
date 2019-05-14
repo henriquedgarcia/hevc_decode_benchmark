@@ -16,7 +16,9 @@
       <excludeFolder url="file://$MODULE_DIR$/exp1/tile_none_singlethread" />
       <excludeFolder url="file://$MODULE_DIR$/exp1/tile_vaapi_auto" />
       <excludeFolder url="file://$MODULE_DIR$/exp1/tile_vaapi_singlethread" />
+      <excludeFolder url="file://$MODULE_DIR$/exp2/dectime" />
       <excludeFolder url="file://$MODULE_DIR$/exp2/hevc" />
+      <excludeFolder url="file://$MODULE_DIR$/exp2/mp4" />
       <excludeFolder url="file://$MODULE_DIR$/exp4/dash" />
       <excludeFolder url="file://$MODULE_DIR$/exp4/hevc" />
       <excludeFolder url="file://$MODULE_DIR$/exp5 - using bitrate/ffmpeg" />
@@ -26,9 +28,12 @@
       <excludeFolder url="file://$MODULE_DIR$/exp5 - using bitrate/yuv-full" />
       <excludeFolder url="file://$MODULE_DIR$/exp6 - cropeds yuv/hevc" />
       <excludeFolder url="file://$MODULE_DIR$/exp7 - same exp5 only 10 sec/dash" />
+      <excludeFolder url="file://$MODULE_DIR$/exp7 - same exp5 only 10 sec/hevc" />
       <excludeFolder url="file://$MODULE_DIR$/exp7 - same exp5 only 10 sec/mp4" />
+      <excludeFolder url="file://$MODULE_DIR$/exp8- novos formatos de tiles - verificar resultados anteriores/yuv" />
       <excludeFolder url="file://$MODULE_DIR$/exp8.5 - Experimento para reunião/hevc" />
       <excludeFolder url="file://$MODULE_DIR$/exp8.5 - Experimento para reunião/mp4" />
+      <excludeFolder url="file://$MODULE_DIR$/exp8.5 - Experimento para reunião/yuv" />
       <excludeFolder url="file://$MODULE_DIR$/exp9 - compare decoder, quality factor, tiles structs/dectime" />
       <excludeFolder url="file://$MODULE_DIR$/exp9 - compare decoder, quality factor, tiles structs/ffmpeg" />
       <excludeFolder url="file://$MODULE_DIR$/exp9 - compare decoder, quality factor, tiles structs/yuv-10s" />

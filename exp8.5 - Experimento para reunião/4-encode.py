@@ -31,7 +31,8 @@ def main():
     videos = {"pac_man": 0,
               "rollercoaster": 0,
               "lions": 0,
-              "om-non": 0}
+              "om_non": 0}
+    videos = {"om_nom": 0}
 
     for name in videos:
         for tile in tile_list:
@@ -55,20 +56,26 @@ def main():
                     params_qp = f'{params_common} --qp {qp} --output {filepath_out_qp + ".hevc"}'
 
                     if os.path.isfile(filepath_out_rate + '.hevc'):
-                        print(f'arquivo {filepath_out_rate + ".hevc"} existe. Pulando.')
+                        print(
+                            f'arquivo {filepath_out_rate + ".hevc"} existe. Pulando.')
                     else:
                         command = f'{kvazaar} {params_rate}'
-                        with open(filepath_out_rate + '.log', 'w', encoding='utf-8') as f:
+                        with open(filepath_out_rate + '.log', 'w',
+                                  encoding='utf-8') as f:
                             print(command)
-                            subprocess.run(command, stdout=f, stderr=subprocess.STDOUT)
+                            subprocess.run(command, shell=True, stdout=f,
+                                           stderr=subprocess.STDOUT)
 
                     if os.path.isfile(filepath_out_qp + '.hevc'):
-                        print(f'arquivo {filepath_out_qp + ".hevc"} existe. Pulando.')
+                        print(
+                            f'arquivo {filepath_out_qp + ".hevc"} existe. Pulando.')
                     else:
                         command = f'{kvazaar} {params_qp}'
-                        with open(filepath_out_qp + '.log', 'w', encoding='utf-8') as f:
+                        with open(filepath_out_qp + '.log', 'w',
+                                  encoding='utf-8') as f:
                             print(command)
-                            subprocess.run(command, stdout=f, stderr=subprocess.STDOUT)
+                            subprocess.run(command, shell=True, stdout=f,
+                                           stderr=subprocess.STDOUT)
 
 
 if __name__ == '__main__':

@@ -1,4 +1,6 @@
 exp1/hevc/*
+exp2/dectime/*
+exp2/mp4/*
 exp2/hevc/*
 exp4/hevc/*
 exp4/dash/*
@@ -9,10 +11,16 @@ exp5 - using bitrate/yuv-cropped/*
 exp5 - using bitrate/yuv-full/*
 exp6 - cropeds yuv/hevc/*
 exp7 - same exp5 only 10 sec/dash/*
+exp7 - same exp5 only 10 sec/hevc/*
 exp7 - same exp5 only 10 sec/mp4/*
+exp8- novos formatos de tiles - verificar resultados anteriores/yuv
 exp8.5 - Experimento para reunião/mp4/*
 exp8.5 - Experimento para reunião/hevc/*
+exp8.5 - Experimento para reunião/yuv/*
+exp9 - compare decoder, quality factor, tiles structs/kvazaar
+exp9 - compare decoder, quality factor, tiles structs/original
 exp9 - compare decoder, quality factor, tiles structs/dectime
 exp9 - compare decoder, quality factor, tiles structs/ffmpeg
+exp9 - compare decoder, quality factor, tiles structs/yuv
 exp9 - compare decoder, quality factor, tiles structs/yuv-10s
 tools/*
