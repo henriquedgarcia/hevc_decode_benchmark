@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/exp5 - using bitrate/bin/SITI" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/exp5 - using bitrate/bin/gop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/360tools" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/360video-edge-rendering" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/GitlHEVCAnalyzer" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/GitlHEVCAnalyzer/libgitlmvc" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/GitlHEVCAnalyzer/libgitlmvc/libgitlevtbus" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/SITI" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/ffmpeg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/gpac-linux" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/gpac-win/gpac" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/gpac-win/gpac - Copia" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/gpac-win/gpac_extra_libs/openHEVC" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/hevcesbrowser" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/hevcesbrowser/external/QHexView" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/jctvc-hm" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/kvazaar" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/kvazaar/greatest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/libav" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/tools/openHEVC" vcs="Git" />
+  </component>
+</project>

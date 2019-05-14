@@ -1,86 +1,18 @@
-# This file is used to ignore files which are generated
-# ----------------------------------------------------------------------------
-*.mp4
-*.hevc
-*.m4s
-*.yuv
-*.mpd
-*.hevc.txt
-tools/
-clans_*.txt
-*.jpg
-desktop.ini
-.idea
-.vscode
-*.png
-*.pro
-*~
-*.autosave
-*.a
-*.core
-*.moc
-*.o
-*.obj
-*.orig
-*.rej
-*.so
-*.so.*
-*_pch.h.cpp
-*_resource.rc
-*.qm
-.#*
-*.*#
-core
-!core/
-tags
-.DS_Store
-.directory
-*.debug
-Makefile*
-*.prl
-*.app
-moc_*.cpp
-ui_*.h
-qrc_*.cpp
-Thumbs.db
-*.res
-*.rc
-/.qmake.cache
-/.qmake.stash
-
-# qtcreator generated files
-*.pro.user*
-
-# xemacs temporary files
-*.flc
-
-# Vim temporary files
-.*.swp
-
-# Visual Studio generated files
-*.ib_pdb_index
-*.idb
-*.ilk
-*.pdb
-*.sln
-*.suo
-*.vcproj
-*vcproj.*.*.user
-*.ncb
-*.sdf
-*.opensdf
-*.vcxproj
-*vcxproj.*
-
-# MinGW generated files
-*.Debug
-*.Release
-
-# Python byte code
-*.pyc
-
-# Binaries
-# --------
-*.dll
-*.exe
-
+exp1/hevc/*
+exp2/hevc/*
+exp4/hevc/*
+exp4/dash/*
+exp5 - using bitrate/ffmpeg/*
+exp5 - using bitrate/kvazaar/*
+exp5 - using bitrate/original/*
+exp5 - using bitrate/yuv-cropped/*
+exp5 - using bitrate/yuv-full/*
+exp6 - cropeds yuv/hevc/*
+exp7 - same exp5 only 10 sec/dash/*
+exp7 - same exp5 only 10 sec/mp4/*
+exp8.5 - Experimento para reunião/mp4/*
+exp8.5 - Experimento para reunião/hevc/*
+exp9 - compare decoder, quality factor, tiles structs/dectime
+exp9 - compare decoder, quality factor, tiles structs/ffmpeg
+exp9 - compare decoder, quality factor, tiles structs/yuv-10s
+tools/*

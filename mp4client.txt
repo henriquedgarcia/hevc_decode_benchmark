@@ -1,0 +1,358 @@
+MP4Client(1)                                             GPAC                                            MP4Client(1)
+
+NAME
+       MP4Client - GPAC MPEG-4 command-line Player
+
+SYNOPSIS
+       MP4Client [options] [file]
+
+DESCRIPTION
+       MP4Client  is GPAC command-line player. It supports all GPAC playback features (2D and 3D support, local play‐
+       back, RTP streaming, HTTP faststart, many audio and video codecs ...). MP4Client also supports visual  extrac‐
+       tion to BMP, RAW or AVI (no compression, no audio).
+
+STARTUP OPTIONS
+       -c file
+              specifies  config file to use. Default config file is located in user home directory and created if not
+              found.
+
+       -rti file
+              logs run-time information to file. Information logged is: FPS, CPU, Memory usage.
+
+       -quiet removes script message, buffering and downloading status.
+
+       -strict-error
+              exits after the first error is reported.
+
+       -log-file FILE
+              specifies where to write logs. Default is stdout. Same as -lf.
+
+       -logs TOOLS
+              sets log tools and levels, formatted as a ':'-separated list of  toolX[:toolZ]@level.  By  default  all
+              errors are logged. level can be one of quiet, error, warning, info or debug. tool can be:
+              core: libgpac core
+              coding: bitstream formats (audio, video, scene)
+              container: container formats (ISO File, MPEG-2 TS, AVI, ...)
+              network: network data exept RTP trafic
+              rtp: rtp trafic
+              author: authoring tools (hint, import, export)
+              sync: terminal sync layer
+              codec: terminal codec messages
+              parser: scene parsers (svg, xmt, bt) and other
+              media: terminal media object management
+              scene: scene graph and scene manager
+              script: scripting engine messages
+              interact: interaction engine (events, scripts, etc)
+              smil: SMIL timing engine
+              compose: composition engine (2D, 3D, etc)
+              mmio: Audio/Video HW I/O management
+              rti: various run-time stats
+              cache: HTTP cache subsystem
+              audio: Audio renderer and mixers
+              mem: GPAC memory tracker
+              module: GPAC modules debugging
+              mutex: mutex
+              none: no tool logged
+              all: all tools logged - other tools can be specified afterwards.
+
+PLAYBACK OPTIONS
+       A file can be controled during playback by typing one of the following key at prompt.
+
+       o      connects to a new URL entered at prompt by user.
+
+       r      restarts the current presentation
+
+       p      plays/pauses the current presentation
+
+       s      step one frame ahead in the current presentation
+
+       z      seek into presentation. Seek percentage is entered at prompt
+
+       t      prints current timing of the main timeline of the presentation
+
+       w      prints world info of the current presentation
+
+       v      prints list of all GF_ObjectDescriptor used in current presentation.
+
+       i      prints information of a given OD. Object ID is entered at prompt.
+
+       b      prints all objects timing and buffering info.
+
+       m      prints all objects buffering and memory info.
+
+       d      dumps current presentation scene graph to file or stdout.
+
+       k      Turns stress mode on/off.
+
+       n      Changes  current  navigation mode if possible/allowed. When a Layer3D is selected, sets layer3D naviga‐
+              tion if allowed.
+
+       x      Reset to last active viewpoint. When a layer3D is selected, resets layer3D viewpoint.
+
+       2      Reload MPEG-4 Client with GPAC 2D Renderer.
+
+       3      Reload MPEG-4 Client with GPAC 3D Renderer.
+
+       4      forces 4/3 Aspect Ratio.
+
+       5      forces 16/9 Aspect Ratio.
+
+       6      forces no aspect ratio (always fill screen).
+
+       7      forces original Aspect Ratio (default mode).
+
+       l      prints the list of available plugins.
+
+       c      prints some GPAC configuration info.
+
+       q      quits the application.
+
+       C      enables streaming cache.
+
+       S      stops streaming cache and record it.
+
+       A      stops streaming cache and discard it.
+
+       h      prints list of available commands.
+
+WINDOW SHORTCUTS
+       When MP4Client window has the focus, the following shortcuts are available
+
+       Alt + right
+              Seeks 5% ahead from current time.
+
+       Alt + left
+              Seeks 5% before the current time
+
+       Alt + up
+              Increases volume by 5%
+
+       Alt + down
+              Decreases volume by 5%
+
+       HOME   Resets navigation to last bound viewpoint/viewport
+
+       4, 5, 6, 7
+              Same as non-window values
+
+       ESCAPE , alt+return, doubleclick
+              Toggles fullscreen on/off.
+
+       ctrl + 'f'
+              Prints current rendering framerate.
+
+       ctrl + 'R'
+              Sends a redraw message (complete scene state recompute).
+
+       ctrl + 'P'
+              Play/Pause.
+
+       ctrl + 'S'
+              Step one frame ahead.
+
+CONFIGURATION FILE
+       When launched for the first time, MP4Client will ask for a font directory and a cache directory.
+
+       Font Directory
+              Indicates the absolute path to a directory containing a TrueType font repository. In case  this  direc‐
+              tory is not specified or does not contain valid TrueType fonts, text will be disabled.
+
+       Cache Directory
+              Indicates  the  absolute  path  to  a directory with write access to store files retrieved through HTTP
+              downloads. In case this directory is not specified or has no write access HTTP downloads won't work.
+
+NAVIGATION
+       Navigation with MP4Client depends on the renderer type (2D or 3D) and also on content - some content may  dis‐
+       able user selectable navigation.
+
+       Walk & Fly modes
+              Mouse: Horizontal move: Horizontal pan - Vertical move: Z-translate - Vertical move+CTRL or Wheel: Ver‐
+              tical pan - Right Click (Walk mode only): Jump Keys: left/right: Horizontal pan - left/right+CTRL: Hor‐
+              izontal translate - up/down: Z-translate - up/down+CTRL: Vertical pan
+
+       Pan mode
+              Mouse:  Horizontal move: Horizontal pan - Vertical move: Vertical pan - Vertical move+CTRL or Wheel: Z-
+              translate Keys: left/right: Horizontal pan - left/right+CTRL: Horizontal  translate - up/down: Vertical
+              pan - up/down+CTRL: Z-translate
+
+       Slide mode
+              Mouse:  Horizontal  move: Horizontal translate - Vertical move: Vertical translate - Vertical move+CTRL
+              or Wheel: Z-translate Keys: left/right:  Horizontal  translate  -  left/right+CTRL:  Horizontal  pan  -
+              up/down: Vertical translate - up/down+CTRL: Z-translate
+
+       Examine & Orbit mode
+              Mouse:  Horizontal move: Y-Axis rotate - Horizontal move+CTRL: No move - Vertical move: X-Axis rotate -
+              Vertical move+CTRL or Wheel: Z-translate Keys: left/right: Y-Axis rotate - left/right+CTRL:  Horizontal
+              translate - up/down: X-Axis rotate - up/down+CTRL: Y-translate
+
+       Game mode (press END to escape)
+              Mouse:  Horizontal  move:  H pan - Vertical move: Vertical pan Keys: left/right: Horizontal translate -
+              up/down: Z-translate
+
+       All 3D modes
+              CTRL+PGUP/PGDOWN will zoom in/out camera (field of view)
+
+       Slide Mode in 2D
+              Mouse: Horizontal move: Horizontal translate - Vertical move: Vertical translate -  V  move+CTRL:  zoom
+              Keys: left/right: Horizontal translate - up/down: Vertical translate - up/down+CTRL: zoom
+
+       Examine Mode in 2D (3D renderer only)
+              Mouse:  Horizontal move: Y-Axis rotate - Vertical move: X-Axis rotate Keys: left/right: Y-Axis rotate -
+              up/down: X-Axis rotate
+
+       SHIFT  Speeds up movement
+
+VISUAL EXTRACTION OPTIONS
+       When used to dump a visual presentation, the client is no longer interactive. All GPAC features are  supported
+       during capture, except audio-related ones. The following options can be passed at prompt:
+
+       -bmp [times]
+              dumps  the  specified  frames  to BMP format. If no time is specified, capture is made at t=0s. time is
+              given in millisecond, as an SMPTE time code or as HH:MM:SS:MS time code. You may specify several  frame
+              times by using a dash-separated list of times (eg, '0-10-15').
+
+       -raw [times]
+              dumps the specified frames to RAW format. If no time is specified, cpature is made at t=0s.
+
+       -avi start:end
+              dumps the specified segment to uncompressed AVI format.
+
+       -fps rate
+              specifies frame rate for AVI dumping. Default frame rate is 25.0.
+
+       -size WxH
+              specifies frame size for dumping. Default frame size is the scene size.
+
+       -fill  uses fill aspect ratio. By default, the scene aspect ratio is preserved when dumping.
+
+       -show  show window while dumping the content. By default, the window is hidden during capture.
+
+       -2d    forces  usage  of  2D renderer. By default, MP4Client uses the renderer indicated in GPAC configuration
+              file.
+
+       -3d    forces usage of 3D renderer. By default, MP4Client uses the renderer indicated  in  GPAC  configuration
+              file.
+
+       -quiet removes script message, buffering and downloading status.
+
+FILES
+       GPAC Configuration File: ~/.gpacrc
+
+AUTHORS
+       Jean Le Feuvre <jeanlf@users.sourceforge.net> - GPAC (c) 2000-2005 - ENST 2005-200X
+
+SEE ALSO
+       GPAC(1), MP4Box(1)
+
+MP4Client                                             March 2005                                         MP4Client(1)
+Usage MP4Client [options] [filename]
+	-c fileName:    user-defined configuration file. Also works with -cfg
+	-rti fileName:  logs run-time info (FPS, CPU, Mem usage) to file
+	-rtix fileName: same as -rti but driven by GPAC logs
+	-quiet:         removes script message, buffering and downloading status
+	-strict-error:  exit when the player reports its first error
+	-opt option:    Overrides an option in the configuration file. String format is section:key=value. 
+	                  "section:key=null" removes the key
+	                  "section:*=null" removes the section
+	-conf option:   Same as -opt but does not start player.
+	-log-file file: sets output log file. Also works with -lf
+	-logs log_args: sets log tools and levels, formatted as a ':'-separated list of toolX[:toolZ]@levelX
+	                 levelX can be one of:
+	        "quiet"      : skip logs
+	        "error"      : logs only error messages
+	        "warning"    : logs error+warning messages
+	        "info"       : logs error+warning+info messages
+	        "debug"      : logs all messages
+	                 toolX can be one of:
+	        "core"       : libgpac core
+	        "coding"     : bitstream formats (audio, video, scene)
+	        "container"  : container formats (ISO File, MPEG-2 TS, AVI, ...)
+	        "network"    : network data exept RTP trafic
+	        "rtp"        : rtp trafic
+	        "author"     : authoring tools (hint, import, export)
+	        "sync"       : terminal sync layer
+	        "codec"      : terminal codec messages
+	        "parser"     : scene parsers (svg, xmt, bt) and other
+	        "media"      : terminal media object management
+	        "scene"      : scene graph and scene manager
+	        "script"     : scripting engine messages
+	        "interact"   : interaction engine (events, scripts, etc)
+	        "smil"       : SMIL timing engine
+	        "compose"    : composition engine (2D, 3D, etc)
+	        "mmio"       : Audio/Video HW I/O management
+	        "rti"        : various run-time stats
+	        "cache"      : HTTP cache subsystem
+	        "audio"      : Audio renderer and mixers
+	        "dash"       : HTTP streaming logs
+	        "module"     : GPAC modules debugging
+	        "mutex"      : mutex
+	        "all"        : all tools logged - other tools can be specified afterwards.
+	The special value "ncl" disables color logs.
+
+	-log-clock or -lc      : logs time in micro sec since start time of GPAC before each log line.
+	-log-utc or -lu        : logs UTC time in ms before each log line.
+	-ifce IPIFCE           : Sets default Multicast interface
+	-size WxH:      specifies visual size (default: scene size)
+	-no-thread:     disables thread usage (except for audio)
+	-no-cthread:    disables compositor thread (iOS and Android mode)
+	-no-audio:      disables audio 
+	-no-wnd:        uses windowless mode (Win32 only)
+	-no-back:       uses transparent background for output window when no background is specified (Win32 only)
+	-align vh:      specifies v and h alignment for windowless mode
+	                 possible v values: t(op), m(iddle), b(ottom)
+	                 possible h values: l(eft), m(iddle), r(ight)
+	                 default alignment is top-left
+	                 default alignment is top-left
+	-pause:         pauses at first frame
+	-play-from T:   starts from T seconds in media
+	-speed S:       starts with speed S
+	-loop:          loops presentation
+	-no-regulation: disables framerate regulation
+	-bench:         disable a/v output and bench source decoding (as fast as possible)
+	-vbench:        disable audio output, video sync bench source decoding/display (as fast as possible)
+	-sbench:        disable all decoders and bench systems layer (as fast as possible)
+	-fs:            starts in fullscreen mode
+	-views v1:.:vN: creates an auto-stereo scene of N views. vN can be any type of URL supported by GPAC.
+	                 in this mode, URL argument of GPAC is ignored, GUI as well.
+	                 this is equivalent as using views://v1:.:N as an URL.
+	-mosaic v1:.:vN: creates a mosaic of N views. vN can be any type of URL supported by GPAC.
+	                 in this mode, URL argument of GPAC is ignored.
+	                 this is equivalent as using mosaic://v1:.:N as an URL.
+
+	-exit:          automatically exits when presentation is over
+	-run-for TIME:  runs for TIME seconds and exits
+	-service ID:    auto-tune to given service ID in a multiplex
+	-noprog:        disable progress report
+	-no-save:       disable saving config file on exit
+	-no-addon:      disable automatic loading of media addons declared in source URL
+	-gui:           starts in GUI mode. The GUI is indicated in GPAC config, section General, by the key [StartupFile]
+	-ntp-shift T:   shifts NTP clock of T (signed int) milliseconds
+
+Dumper Options (times is a formated as start-end, with start being sec, h:m:s:f/fps or h:m:s:ms):
+	-bmp [times]:   dumps given frames to bmp
+	-png [times]:   dumps given frames to png
+	-raw [times]:   dumps given frames to raw
+	-avi [times]:   dumps given file to raw avi
+	-sha [times]:   dumps given file to raw SHA-1 (1 hash per frame)
+-out filename:  name of the output file
+	-rgbds:         dumps the RGBDS pixel format texture
+	                 with -avi [times]: dumps an rgbds-format .avi
+	-rgbd:          dumps the RGBD pixel format texture
+	                 with -avi [times]: dumps an rgbd-format .avi
+	-depth:         dumps depthmap (z-buffer) frames
+	                 with -avi [times]: dumps depthmap in grayscale .avi
+	                 with -bmp: dumps depthmap in grayscale .bmp
+	                 with -png: dumps depthmap in grayscale .png
+	-fps FPS:       specifies frame rate for AVI dumping (default: 25.000000)
+	-scale s:       scales the visual size (default: 1)
+	-fill:          uses fill aspect ratio for dumping (default: none)
+	-show:          shows window while dumping (default: no)
+
+	-uncache:       Revert all cached items to their original name and location. Does not start player.
+
+	-help:          shows this screen
+
+MP4Client - GPAC command line player and dumper - version 0.7.2-DEV-rev917-g8ce98529f-master
+(c) Telecom ParisTech 2000-2018 - Licence LGPL v2
+GPAC Configuration: 
+Features: GPAC_64_BITS GPAC_HAS_SSL GPAC_HAS_JPEG GPAC_HAS_PNG 

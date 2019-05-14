@@ -1,0 +1,29 @@
+{
+  "scale": "4320x2160",
+  "fps": 30,
+  "gop": 30,
+  "duration": 10,
+  "qp_list": [20, 30, 40],
+  "rate_list": [2000000, 8000000, 24000000],
+  "tile_list": ["1x1", "2x2", "3x3", "6x4"],
+  "videos_list": {
+      "surf": "surf_4320x2160_30.yuv",
+      "om_nom": "om_nom_4320x2160_30.yuv",
+      "lions": "lions_4320x2160_30.yuv",
+      "rollercoaster": "rollercoaster_4320x2160_30.yuv"
+  },
+  "videos_old": {
+      "surf": "surf_4320x2160_30.yuv",
+      "pac_man": "pac_man_4320x2160_30.yuv",
+      "clans": "clans_4320x2160_30.yuv",
+      "super_mario": "super_mario_4320x2160_30.yuv",
+      "rollercoaster": "rollercoaster_4320x2160_30.yuv",
+      "ski": "ski_4320x2160_30.yuv",
+      "jaws": "jaws_4320x2160_30.yuv",
+      "lions": "lions_4320x2160_30.yuv",
+      "maldives": "maldives_4320x2160_30.yuv",
+      "om_nom": "om_nom_4320x2160_30.yuv",
+      "elephants": "elephants_4320x2160_30.yuv",
+      "ninja_turtles": "ninja_turtles_4320x2160_30.yuv"
+    }
+}

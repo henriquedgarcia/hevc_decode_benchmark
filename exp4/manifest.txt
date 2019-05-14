@@ -1,0 +1,5 @@
+Codificar um vídeo com baixa atividade, selecionar um chunk, medir tempo de decodificação
+
+
+A taxa de transmissão depende do conteúdo. Se um video de baixa atividade for codificado com uma taxa fixa e o video de alta atividade for codificado com a mesma taxa, o primeiro vídeo terá um PSNR maior.
+mas e o tempo de decodificação?
