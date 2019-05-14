@@ -19,6 +19,11 @@
       <excludeFolder url="file://$MODULE_DIR$/exp2/hevc" />
       <excludeFolder url="file://$MODULE_DIR$/exp4/dash" />
       <excludeFolder url="file://$MODULE_DIR$/exp4/hevc" />
+      <excludeFolder url="file://$MODULE_DIR$/exp5 - using bitrate/ffmpeg" />
+      <excludeFolder url="file://$MODULE_DIR$/exp5 - using bitrate/kvazaar" />
+      <excludeFolder url="file://$MODULE_DIR$/exp5 - using bitrate/original" />
+      <excludeFolder url="file://$MODULE_DIR$/exp5 - using bitrate/yuv-cropped" />
+      <excludeFolder url="file://$MODULE_DIR$/exp5 - using bitrate/yuv-full" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
