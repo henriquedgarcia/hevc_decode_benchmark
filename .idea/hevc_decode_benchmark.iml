@@ -25,6 +25,14 @@
       <excludeFolder url="file://$MODULE_DIR$/exp5 - using bitrate/yuv-cropped" />
       <excludeFolder url="file://$MODULE_DIR$/exp5 - using bitrate/yuv-full" />
       <excludeFolder url="file://$MODULE_DIR$/exp6 - cropeds yuv/hevc" />
+      <excludeFolder url="file://$MODULE_DIR$/exp7 - same exp5 only 10 sec/dash" />
+      <excludeFolder url="file://$MODULE_DIR$/exp7 - same exp5 only 10 sec/mp4" />
+      <excludeFolder url="file://$MODULE_DIR$/exp8.5 - Experimento para reunião/hevc" />
+      <excludeFolder url="file://$MODULE_DIR$/exp8.5 - Experimento para reunião/mp4" />
+      <excludeFolder url="file://$MODULE_DIR$/exp9 - compare decoder, quality factor, tiles structs/dectime" />
+      <excludeFolder url="file://$MODULE_DIR$/exp9 - compare decoder, quality factor, tiles structs/ffmpeg" />
+      <excludeFolder url="file://$MODULE_DIR$/exp9 - compare decoder, quality factor, tiles structs/yuv-10s" />
+      <excludeFolder url="file://$MODULE_DIR$/tools" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
