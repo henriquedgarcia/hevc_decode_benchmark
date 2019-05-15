@@ -4,44 +4,86 @@ import os
 import json
 import numpy as np
 import matplotlib.pyplot as plt
-from utils import util
-from utils import util_stats
 
-programs = util.check_system()
-sl = programs['sl']
+from utils import util
 
 duration = 10
 scale = '4320x2160'
-w = 4320
-h = 2160
+w, h = list(map(int, scale.split('x')))
 fps = 30
 gop = 30
-qp_list = [20, 25, 30, 35, 40]
-rate_list = [2000000, 4000000, 8000000, 16000000, 24000000]
-tile_list = ['1x1', '6x4', '12x8']
+proc_num = 4
 
-# videos = {"pac_man": 0,
-#           "rollercoaster": 0,
-#           "lions": 0,
-#           "om_nom": 0}
-# videos = {"rollercoaster": 0,
-#           "lions": 0,
-#           "om_nom": 0}
-videos = {"rollercoaster": 0,
-          "lions": 0}
+qp_list = [20, 30, 40]
+rate_list = [2000000, 8000000, 24000000]
+tile_list = ['1x1', '2x2', '3x3', '6x3']
+
+sl = util.check_system()['sl']
+
+videos = {'rollercoaster': 0,
+          'lions': 0}
 
 
 def main():
     collect_data()
     # grafico do tamanho do tiles pelo tempo
-    # graph1()
-    # graph2()
+    graph_chunk_X_time_X_tile_rate()
+    graph2()
     # graph3()
 
 
-def graph1():
+
+class Graph:
+    """
+    datalist é um dicionário com dicionários com dicionário com listas com dicionário com lista
+
+    um plot de uma linha possui uma legenda pra linha e dados com informações sobre os eixos:
+
+    Uma figura possui um título e várias linhas
+
+    datalist = {'fig1': {title: 'title of picture',
+                         lines: [{label: 'line label 1'
+                                  data: {x_leg: 'x axis legend',
+                                         x_axis: [x1, x2, ...],
+                                         y_leg: 'x axis legend',
+                                         y_axis: [y1, y2, ...]
+                                        },
+                                 {label: 'line label 2'
+                                  data: {x_leg: 'x axis legend',
+                                         x_axis: [x1, x2, ...],
+                                         y_leg: 'x axis legend',
+                                         y_axis: [y1, y2, ...]
+                                        },
+                           ...
+                           },
+                'title2: ...,
+                }
+
+        title é o título do grafico
+        line é a legenda da linha
+        eixo_x_leg e eixo_y_leg são as legendas dos eixos
+
+    :type datalist: dict(dict(dict(list())))
+    :param datalist:
+    :return:
+    """
+    w_bar = 0.2
+    idx = np.array([1., 2., 3., 4., 5.])
+
+    for title in datalist:
+        plt.close()
+        fig, ax = plt.subplots(1, 1, figsize=(8, 5))
+
+        line: dict
+        for line in datalist[title]:
+            x = line['x_axis']
+            y = line['y_axis']
+            ax.plot(x, y, label=line[')
+
+
+def graph_chunk_X_time_X_tile_rate():
     decode_time = _load_data('times.json')
-    destiny = 'graph1_chunkXtime_tile-rate'
+    destiny = 'graph_chunk_X_time_X_tile_rate'
     os.makedirs(destiny, exist_ok=True)
 
     # ctx = itertools.product(videos, range(1, m * n + 1), rate_list)
@@ -51,11 +93,6 @@ def graph1():
             for tile in tile_list:
                 m, n = list(map(int, tile.split('x')))
 
-                w_bar = 0.2
-                idx = np.array([1., 2., 3., 4., 5.])
-                plt.close()
-                fig, [ax1, ax2] = plt.subplots(2, 1, figsize=(8, 8))
-
                 time = {}
                 size = {}
 
@@ -64,7 +101,9 @@ def graph1():
                     size[t] = []
 
                     for chunk in range(1, duration + 1):
-                        [chunk_time] = (decode_time[name][tile][str(rate)][str(t)][str(chunk)]['time'])
+                        chunk_time = (decode_time[name][tile][str(rate)][str(t)][str(chunk)]['time'])
+                        chunk_time = list(map(float, chunk_time))
+                        chunk_time = np.average(chunk_time)
                         time[t].append(30 / float(chunk_time))
                         chunk_size = float(decode_time[name][tile][str(rate)][str(t)][str(chunk)]['size'])
                         size[t].append(chunk_size * 8)
@@ -109,7 +148,10 @@ def graph2():
                     time = []
                     size = []
                     for chunk in range(1, duration + 1):
-                        [chunk_time] = (decode_time[name][tile][str(rate)][str(t)][str(chunk)]['time'])
+                        chunk_time = (decode_time[name][tile][str(rate)][str(t)][str(chunk)]['time'])
+                        chunk_time = list(map(float, chunk_time))
+                        chunk_time = np.average(chunk_time)
+
                         time.append(30 / float(chunk_time))
                         chunk_size = float(decode_time[name][tile][str(rate)][str(t)][str(chunk)]['size'])
                         size.append(chunk_size * 8)
@@ -227,74 +269,6 @@ def graph3():
                 fig.savefig(f'{destiny}{sl}{name}_{rate}_{tile}')
 
 
-'''
-def graph2():
-    decode_time = _load_data('times.json')
-
-
-    for gop in gops:
-        for tile in tiles:
-            destiny = 'graph2_gop-tile-qp'
-            plt.close()
-            fig, ax = plt.subplots(figsize=(8, 8))
-            w_bar = 0.2
-            idx = np.array([1., 2., 3., 4., 5.])
-            idx2 = np.array([1., 2., 3., 4., 5.])
-
-            for accell in accells:
-                for thread in threads:
-                    real_time_mean = []
-                    user_time_mean = []
-                    sys_time_mean = []
-                    real_time_std = []
-                    user_time_std = []
-                    sys_time_std = []
-
-                    for qp in qps:
-                        real_time_mean += [
-                            np.average(decode_time[tile][str(gop)][str(qp)][accell][thread]['real_time']) / 10]
-                        user_time_mean += [
-                            np.average(decode_time[tile][str(gop)][str(qp)][accell][thread]['user_time']) / 10]
-                        sys_time_mean += [
-                            np.average(decode_time[tile][str(gop)][str(qp)][accell][thread]['sys_time']) / 10]
-
-                        real_time_std += [
-                            np.std(decode_time[tile][str(gop)][str(qp)][accell][thread]['real_time']) / 10]
-                        user_time_std += [
-                            np.std(decode_time[tile][str(gop)][str(qp)][accell][thread]['user_time']) / 10]
-                        sys_time_std += [np.std(decode_time[tile][str(gop)][str(qp)][accell][thread]['sys_time']) / 10]
-
-                    plt.bar(idx, sys_time_mean, width=w_bar,
-                            label='Sys Time, acc={}, threads={}'.format(accell, thread), yerr=sys_time_std)
-                    plt.bar(idx, user_time_mean, width=w_bar, bottom=sys_time_mean,
-                            label='User Time, acc={}, threads={}'.format(accell, thread), yerr=user_time_std)
-                    idx += w_bar
-                    plt.bar(idx, real_time_mean, width=w_bar,
-                            label='Real Time, acc={}, threads={}'.format(accell, thread), yerr=real_time_std)
-                    idx += w_bar + 0.01
-
-            # aqui fica o plot do gráfico
-            ax.set_xlabel('QP')
-            ax.set_ylabel('Time (s)')
-            ax.set_title('Times by qp, gop {}, tile {}'.format(str(gop), tile))
-            ax.set_xticks(idx2 + 2 * w_bar)
-            ax.set_xticklabels(('20', '25', '30', '35', '40'))
-            ax.legend()
-
-            plt.yticks(np.arange(0, 2.6, 0.25))
-            plt.legend(loc='best')
-            # plt.show()
-
-            os.makedirs(destiny, exist_ok=True)
-            name = destiny + '/clans_{}_{}_{}_gop{}'.format(size,
-                                                            str(fps),
-                                                            tile,
-                                                            str(gop))
-            fig.savefig(name)
-            # print('ok')
-'''
-
-
 def _load_data(filename='times.json'):
     with open(filename, 'r') as f:
         data = json.load(f)
@@ -306,29 +280,38 @@ def collect_data():
 
     for name in videos:
         decode_time[name] = {}
+
         for tile in tile_list:
             decode_time[name][tile] = {}
             m, n = list(map(int, tile.split('x')))
+
             for rate, qp in list(zip(rate_list, qp_list)):
                 decode_time[name][tile][rate] = {}
+
                 for t in range(1, m * n + 1):
                     decode_time[name][tile][rate][t] = {}
+
                     for chunk in range(1, duration + 1):
-                        # log_path = f'dectime{sl}{tile}{sl}{name}_{scale}_{fps}_{tile}_rate{rate}_track{t + 1}_{chunk:03}'  # OLD PATH
-                        out_folder = f'dectime{sl}{name}_{tile}_rate{rate}'
-                        log_path = f'{out_folder}{sl}{name}_tile{t}_{chunk:03}'
-                        video_path = f'dash{sl}{name}_{scale}_{fps}_{tile}_rate{rate}{sl}segments{sl}{name}_tile{t}_track{t + 1}_{chunk:03}'
+                        decode_time[name][tile][rate][t][chunk] = {}
+                        decode_time[name][tile][rate][t][chunk]['time'] = []
+                        decode_time[name][tile][rate][t][chunk]['size'] = 0
+                        # basename_qp = f'{name}_{scale}_{fps}_{tile}_qp{quality}'
+                        basename_rate = f'{name}_{scale}_{fps}_{tile}_rate{rate}'
+
+                        dectime_folder_rate = f'dectime{sl}{basename_rate}'
+                        log_path = f'{dectime_folder_rate}{sl}{basename_rate}_tile{t}_{chunk:03}'
+                        video_path = f'dash{sl}{basename_rate}{sl}{basename_rate}_tile{t}_{chunk:03}'
 
                         size = os.path.getsize(video_path + '.mp4')
+                        decode_time[name][tile][rate][t][chunk]['size'] = size
                         with open(log_path + '.log', 'r') as f:
                             for line in f:
                                 ix = line.find('frames FPS')
                                 if ix > 0:
                                     ix += 11
                                     time = line[ix:ix + 6].split(' ')[0]
-                                    decode_time[name][tile][rate][t][chunk] = {'time': [time], 'size': size}
-                                    print(f'{name}_{tile}_rate{rate}_tile{t}_{chunk:03} = time: [{time}], size: {size}')
-                                    break
+                                    decode_time[name][tile][rate][t][chunk]['time'].append(time)
+                                    print(f'{basename_rate}_tile{t}_{chunk:03} = time: [{time}], size: {size}')
 
     _save_data(decode_time, filename=f'times.json')
 

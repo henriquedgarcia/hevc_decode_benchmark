@@ -1,6 +1,4 @@
 #!/bin/env python3
-import os
-import shutil
 from utils import util
 
 # Configuration
@@ -13,12 +11,10 @@ gop = 30
 
 qp_list = [20, 30, 40]
 rate_list = [2000000, 8000000, 24000000]
-tile_list = ['1x1']
+tile_list = ['2x2', '3x3', '6x3']
 
 
 def main():
-    programs = util.check_system()
-    mp4box = programs['mp4box']
     sl = util.check_system()['sl']
 
     # videos = util.list_videos('input.json')
