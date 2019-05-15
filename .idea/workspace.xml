@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ad05221-1ee7-4752-8bad-9d7de627c52c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/hevc_decode_benchmark.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hevc_decode_benchmark.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2ad05221-1ee7-4752-8bad-9d7de627c52c" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/exp1/dectime/" />
     <ignored path="$PROJECT_DIR$/exp1/hevc/" />
     <ignored path="$PROJECT_DIR$/exp1/qp_cuvid_auto/" />
@@ -72,6 +68,11 @@
               <item name="hevc_decode_benchmark" type="b2602c69:ProjectViewProjectNode" />
               <item name="hevc_decode_benchmark" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="hevc_decode_benchmark" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hevc_decode_benchmark" type="462c0819:PsiDirectoryNode" />
+              <item name="exp7 - same exp5 only 10 sec" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -106,7 +107,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1557859964662</updated>
-      <workItem from="1557859967874" duration="4728000" />
+      <workItem from="1557859967874" duration="5314000" />
     </task>
     <task id="LOCAL-00001" summary="upgrading destilador folders">
       <created>1557877182158</created>
@@ -122,11 +123,25 @@
       <option name="project" value="LOCAL" />
       <updated>1557877779266</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="upgrading project folders-2">
+      <created>1557877854053</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557877854053</updated>
+    </task>
+    <task id="LOCAL-00004" summary="removido arquivo grande">
+      <created>1557878294847</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1557878294847</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4728000" />
+    <option name="totallyTimeSpent" value="5314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1682" height="1000" extended-state="6" />
@@ -136,10 +151,10 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" sideWeight="0.499388" visible="true" weight="0.32912844" />
+      <window_info anchor="bottom" id="Version Control" sideWeight="0.499388" weight="0.32912844" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info active="true" anchor="bottom" id="Event Log" sideWeight="0.500612" side_tool="true" visible="true" weight="0.32912844" />
+      <window_info active="true" anchor="bottom" id="Terminal" sideWeight="0.499388" visible="true" weight="0.32912844" />
+      <window_info anchor="bottom" id="Event Log" sideWeight="0.500612" side_tool="true" visible="true" weight="0.32912844" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -165,6 +180,8 @@
     </ignored-roots>
     <MESSAGE value="upgrading destilador folders" />
     <MESSAGE value="upgrading project folders" />
-    <option name="LAST_COMMIT_MESSAGE" value="upgrading project folders" />
+    <MESSAGE value="upgrading project folders-2" />
+    <MESSAGE value="removido arquivo grande" />
+    <option name="LAST_COMMIT_MESSAGE" value="removido arquivo grande" />
   </component>
 </project>
