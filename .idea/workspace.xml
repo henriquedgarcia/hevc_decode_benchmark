@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8927e290-25b9-4792-975e-33e8095ea103" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/hevc_decode_benchmark.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/hevc_decode_benchmark.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/encode.py" beforeDir="false" afterPath="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/encode.py" afterDir="false" />
+    </list>
+    <list id="eb7c05f6-d9a2-4aea-8eba-33cda5391eed" name="Tools Changelist" comment="Modificações das tools e outros repositórios." />
+    <ignored path="exp1/hevc/" />
+    <ignored path="exp4/hevc/" />
+    <ignored path="exp2/hevc/" />
+    <ignored path="exp4/dash/" />
+    <ignored path="exp5 - using bitrate/ffmpeg/" />
+    <ignored path="exp5 - using bitrate/kvazaar/" />
+    <ignored path="exp5 - using bitrate/original/" />
+    <ignored path="exp5 - using bitrate/yuv-cropped/" />
+    <ignored path="exp5 - using bitrate/yuv-full/" />
+    <ignored path="exp6 - cropeds yuv/hevc/" />
+    <ignored path="tools/gpac-win/gpac_extra_libs/openHEVC/" />
+    <ignored path="tools/gpac-win/gpac/" />
+    <ignored path="tools/gpac-win/gpac - Copia/" />
+    <ignored path="tools/360tools/" />
+    <ignored path="tools/360video-edge-rendering/" />
+    <ignored path="tools/ffmpeg/" />
+    <ignored path="tools/GitlHEVCAnalyzer/" />
+    <ignored path="tools/gpac-linux/" />
+    <ignored path="tools/hevcesbrowser/" />
+    <ignored path="tools/jctvc-hm/" />
+    <ignored path="tools/kvazaar/" />
+    <ignored path="tools/libav/" />
+    <ignored path="tools/openHEVC/" />
+    <ignored path="tools/SITI/" />
+    <ignored path="exp9 - compare decoder, quality factor, tiles structs/dectime/dectimekvazaar/" />
+    <ignored path="exp9 - compare decoder, quality factor, tiles structs/ffmpeg/" />
+    <ignored path="exp9 - compare decoder, quality factor, tiles structs/yuv-10s/" />
+    <ignored path="exp7 - same exp5 only 10 sec/dash/" />
+    <ignored path="exp7 - same exp5 only 10 sec/mp4/" />
+    <ignored path="exp8.5 - Experimento para reunião/hevc/" />
+    <ignored path="exp8.5 - Experimento para reunião/mp4/" />
+    <ignored path="tools/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/encode.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-85">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+              <folding>
+                <element signature="e#134#150#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Henrique D. Garcia &lt;henriquedgarcia@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/encode.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="y" value="-7" />
+    <option name="width" value="1550" />
+    <option name="height" value="838" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="hevc_decode_benchmark" type="b2602c69:ProjectViewProjectNode" />
+              <item name="hevc_decode_benchmark" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/exp1/hevc" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings is-module-sdk="true">
+        <option name="useSoftWraps" value="true" />
+        <option name="myUseModuleSdk" value="true" />
+      </console-settings>
+    </option>
+    <option name="myShowDebugConsoleByDefault" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\henri\Documents\workbrench\hevc_decode_benchmark\exp9 - compare decoder, quality factor, tiles structs\utils" />
+      <recent name="C:\Users\henri\Documents\workbrench\hevc_decode_benchmark\exp9 - compare decoder, quality factor, tiles structs" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="encode" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="hevc_decode_benchmark" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/encode.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.encode" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="4" Folder0="C:\Users\henri\Downloads\Programas\Programação\IntelliJ.Portuguese.Brazil.Dictionary" Folder1="C:\Users\henri\Downloads\Programas\Programação\IntelliJ.Portuguese.Brazil.Dictionary" Folder2="C:\Users\henri\Downloads\Programas\Programação\IntelliJ.Portuguese.Brazil.Dictionary" Folder3="C:\Users\henri\Downloads\Programas\Programação\IntelliJ.Portuguese.Brazil.Dictionary" CustomDictionaries="4" CustomDictionary0="C:\Users\henri\Downloads\Programas\Programação\IntelliJ.Portuguese.Brazil.Dictionary\portuguese-brazil_technical-terms.dic" CustomDictionary1="C:\Users\henri\Downloads\Programas\Programação\IntelliJ.Portuguese.Brazil.Dictionary\portuguese-brazil.dic" CustomDictionary2="C:\Users\henri\Downloads\Programas\Programação\IntelliJ.Portuguese.Brazil.Dictionary\portuguese-brazil_technical-terms_without-accents.dic" CustomDictionary3="C:\Users\henri\Downloads\Programas\Programação\IntelliJ.Portuguese.Brazil.Dictionary\portuguese-brazil_without-accents.dic" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="project-level" UseSingleDictionary="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8927e290-25b9-4792-975e-33e8095ea103" name="Default Changelist" comment="" />
+      <changelist id="eb7c05f6-d9a2-4aea-8eba-33cda5391eed" name="tools" comment="Modificações das tools e outros repositórios." />
+      <created>1557807003339</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1557807003339</updated>
+      <workItem from="1557807007608" duration="7481000" />
+      <workItem from="1557848340794" duration="3960000" />
+    </task>
+    <task id="LOCAL-00001" summary="Exp1">
+      <created>1557808573604</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1557808573604</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Exp2">
+      <created>1557808788556</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1557808788556</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Exp4">
+      <created>1557808822693</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1557808822693</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Exp5">
+      <created>1557809577229</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1557809577229</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Exp6">
+      <created>1557809819738</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1557809819738</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Exp8 e 8.5">
+      <created>1557812995044</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1557812995044</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Prints de movimento">
+      <created>1557813064897</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1557813064897</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="11441000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1376" height="744" extended-state="6" />
+    <layout>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.5007599" visible="true" weight="0.3343465" />
+      <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="1" />
+      <window_info anchor="bottom" id="Version Control" order="2" sideWeight="0.49865952" weight="0.3289689" />
+      <window_info anchor="bottom" id="Python Console" order="3" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="4" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.5013405" side_tool="true" weight="0.28429985" />
+      <window_info anchor="bottom" id="Message" order="6" />
+      <window_info anchor="bottom" id="Find" order="7" />
+      <window_info anchor="bottom" id="Run" order="8" />
+      <window_info anchor="bottom" id="Debug" order="9" visible="true" weight="0.39934534" />
+      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="right" x="0" y="0" width="294" height="544" id="Documentation" side_tool="true" visible="true" weight="0.32978722" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Exp1" />
+    <MESSAGE value="Exp2" />
+    <MESSAGE value="Exp4" />
+    <MESSAGE value="Exp5" />
+    <MESSAGE value="Exp6" />
+    <MESSAGE value="Exp8 e 8.5" />
+    <MESSAGE value="Prints de movimento" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prints de movimento" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/hevc_decode_benchmark$encode.coverage" NAME="encode Coverage Results" MODIFIED="1557885116674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/encode.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-85">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+          <folding>
+            <element signature="e#134#150#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

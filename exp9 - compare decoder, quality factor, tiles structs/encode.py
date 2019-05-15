@@ -2,12 +2,15 @@
 # import sys
 # sys.modules[__name__].__dict__.clear()
 
+# import importlib
+# importlib.reload(modulename)
+
 # Início
 import itertools
-from utils import util
+import util
 
 
-def main():
+def main(argv):
     encode()
 
 
@@ -37,4 +40,5 @@ def encode():
 
 
 if __name__ == '__main__':
-    main()
+    import sys
+    main(sys.argv)
