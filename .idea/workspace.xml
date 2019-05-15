@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ad05221-1ee7-4752-8bad-9d7de627c52c" name="Default Changelist" comment="" />
+    <list default="true" id="2ad05221-1ee7-4752-8bad-9d7de627c52c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/exp1/dectime/" />
     <ignored path="$PROJECT_DIR$/exp1/hevc/" />
     <ignored path="$PROJECT_DIR$/exp1/qp_cuvid_auto/" />
@@ -83,7 +85,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -107,7 +109,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1557859964662</updated>
-      <workItem from="1557859967874" duration="5314000" />
+      <workItem from="1557859967874" duration="6077000" />
     </task>
     <task id="LOCAL-00001" summary="upgrading destilador folders">
       <created>1557877182158</created>
@@ -141,19 +143,19 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5314000" />
+    <option name="totallyTimeSpent" value="6077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1682" height="1000" extended-state="6" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.249694" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.249694" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" sideWeight="0.499388" weight="0.32912844" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info active="true" anchor="bottom" id="Terminal" sideWeight="0.499388" visible="true" weight="0.32912844" />
+      <window_info anchor="bottom" id="Terminal" sideWeight="0.499388" visible="true" weight="0.32912844" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.500612" side_tool="true" visible="true" weight="0.32912844" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -177,6 +179,7 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/exp5 - using bitrate/bin/SITI" />
       <path value="$PROJECT_DIR$/exp5 - using bitrate/bin/gop" />
+      <path value="$PROJECT_DIR$/exp9 - compare decoder, quality factor, tiles structs/yuv/SITI" />
     </ignored-roots>
     <MESSAGE value="upgrading destilador folders" />
     <MESSAGE value="upgrading project folders" />
