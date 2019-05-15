@@ -1,0 +1,14 @@
+Using config file in C:\Users\henri\AppData\Roaming\GPAC directory
+Modules Found : 36 
+Loading GPAC Terminal
+Terminal Loaded in 137 ms
+Opening URL dash\lions_4320x2160_30_12x8_rate24000000\segments\lions_tile96_track97_010.mp4
+Service Connected
+FPS 30.00 CPU 00 Mem 9652 kB33% 23 f FPS 49.78 (12.56 ms max) rate 0 FPS 78.46 CPU 08 Mem 464208 kB96% 30 f FPS 45.45 (16.43 ms max) rate 0 FPS 43.64 CPU 08 Mem 464340 kB                                                                                     ************** Bench Mode Done in 1728 ms ********************
+OpenHEVC v3.0 4320x2160 sar=1:1 duration 1.00s
+96% 30 frames FPS 45.45 (max 16431 us/f) rate avg 0 max 0
+**********************************************************
+
+Service Disconnected
+Deleting terminal... done (in 181 ms) - ran for 2077 ms
+GPAC cleanup ...

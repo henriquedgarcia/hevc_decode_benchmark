@@ -1,0 +1,273 @@
+ffmpeg started on 2019-02-28 at 00:35:34
+Report written to "ffreport.log"
+Command line:
+ffmpeg -hide_banner -s 4320x2160 -framerate 32 -t 5 -i yuv/4Pac_Man_in_360.yuv -codec libx265 -b:v 1500000 -x265-params "keyint=32:min-keyint=32:open-gop=0:info=0" -vf "crop=w=360:h=270:x=0:y=0" saida.mp4
+Splitting the commandline.
+Reading option '-hide_banner' ... matched as option 'hide_banner' (do not show program banner) with argument '1'.
+Reading option '-s' ... matched as option 's' (set frame size (WxH or abbreviation)) with argument '4320x2160'.
+Reading option '-framerate' ... matched as AVOption 'framerate' with argument '32'.
+Reading option '-t' ... matched as option 't' (record or transcode "duration" seconds of audio/video) with argument '5'.
+Reading option '-i' ... matched as input url with argument 'yuv/4Pac_Man_in_360.yuv'.
+Reading option '-codec' ... matched as option 'codec' (codec name) with argument 'libx265'.
+Reading option '-b:v' ... matched as option 'b' (video bitrate (please use -b:v)) with argument '1500000'.
+Reading option '-x265-params' ... matched as AVOption 'x265-params' with argument 'keyint=32:min-keyint=32:open-gop=0:info=0'.
+Reading option '-vf' ... matched as option 'vf' (set video filters) with argument 'crop=w=360:h=270:x=0:y=0'.
+Reading option 'saida.mp4' ... matched as output url.
+Finished splitting the commandline.
+Parsing a group of options: global .
+Applying option hide_banner (do not show program banner) with argument 1.
+Successfully parsed a group of options.
+Parsing a group of options: input url yuv/4Pac_Man_in_360.yuv.
+Applying option s (set frame size (WxH or abbreviation)) with argument 4320x2160.
+Applying option t (record or transcode "duration" seconds of audio/video) with argument 5.
+Successfully parsed a group of options.
+Opening an input file: yuv/4Pac_Man_in_360.yuv.
+[NULL @ 0x7ffff1b82760] Opening 'yuv/4Pac_Man_in_360.yuv' for reading
+[file @ 0x7ffff1b84840] Setting default whitelist 'file,crypto'
+[rawvideo @ 0x7ffff1b82760] Format rawvideo probed with size=2048 and score=50
+[rawvideo @ 0x7ffff1b82760] Before avformat_find_stream_info() pos: 0 bytes read:32768 seeks:0 nb_streams:1
+[rawvideo @ 0x7ffff1b82760] All info found
+[rawvideo @ 0x7ffff1b82760] Estimating duration from bitrate, this may be inaccurate
+[rawvideo @ 0x7ffff1b82760] After avformat_find_stream_info() pos: 13996800 bytes read:13996800 seeks:0 frames:1
+Input #0, rawvideo, from 'yuv/4Pac_Man_in_360.yuv':
+  Duration: 00:01:00.00, start: 0.000000, bitrate: 3583180 kb/s
+    Stream #0:0, 1, 1/32: Video: rawvideo (I420 / 0x30323449), yuv420p, 4320x2160, 3583180 kb/s, 32 tbr, 32 tbn, 32 tbc
+Successfully opened the file.
+Parsing a group of options: output url saida.mp4.
+Applying option codec (codec name) with argument libx265.
+Applying option b:v (video bitrate (please use -b:v)) with argument 1500000.
+Applying option vf (set video filters) with argument crop=w=360:h=270:x=0:y=0.
+Successfully parsed a group of options.
+Opening an output file: saida.mp4.
+[file @ 0x7ffff1b8ace0] Setting default whitelist 'file,crypto'
+Successfully opened the file.
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> hevc (libx265))
+Press [q] to stop, [?] for help
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+detected 12 logical cores
+[Parsed_crop_0 @ 0x7ffff1b88d80] Setting 'w' to value '360'
+[Parsed_crop_0 @ 0x7ffff1b88d80] Setting 'h' to value '270'
+[Parsed_crop_0 @ 0x7ffff1b88d80] Setting 'x' to value '0'
+[Parsed_crop_0 @ 0x7ffff1b88d80] Setting 'y' to value '0'
+[graph 0 input from stream 0:0 @ 0x7ffff1b972a0] Setting 'video_size' to value '4320x2160'
+[graph 0 input from stream 0:0 @ 0x7ffff1b972a0] Setting 'pix_fmt' to value '0'
+[graph 0 input from stream 0:0 @ 0x7ffff1b972a0] Setting 'time_base' to value '1/32'
+[graph 0 input from stream 0:0 @ 0x7ffff1b972a0] Setting 'pixel_aspect' to value '0/1'
+[graph 0 input from stream 0:0 @ 0x7ffff1b972a0] Setting 'sws_param' to value 'flags=2'
+[graph 0 input from stream 0:0 @ 0x7ffff1b972a0] Setting 'frame_rate' to value '32/1'
+[graph 0 input from stream 0:0 @ 0x7ffff1b972a0] w:4320 h:2160 pixfmt:yuv420p tb:1/32 fr:32/1 sar:0/1 sws_param:flags=2
+[format @ 0x7ffff1b8c380] compat: called with args=[yuv420p|yuv422p|yuv444p|gbrp|yuv420p10le|yuv422p10le|yuv444p10le|gbrp10le|yuv420p12le|yuv422p12le|yuv444p12le|gbrp12le|gray|gray10le|gray12le]
+[format @ 0x7ffff1b8c380] Setting 'pix_fmts' to value 'yuv420p|yuv422p|yuv444p|gbrp|yuv420p10le|yuv422p10le|yuv444p10le|gbrp10le|yuv420p12le|yuv422p12le|yuv444p12le|gbrp12le|gray|gray10le|gray12le'
+[AVFilterGraph @ 0x7ffff1b8c640] query_formats: 5 queried, 4 merged, 0 already done, 0 delayed
+[Parsed_crop_0 @ 0x7ffff1b88d80] w:4320 h:2160 sar:0/1 -> w:360 h:270 sar:0/1
+Output #0, mp4, to 'saida.mp4':
+  Metadata:
+    encoder         : Lavf57.83.100
+    Stream #0:0, 0, 1/16384: Video: hevc (libx265) (hev1 / 0x31766568), yuv420p, 360x270, q=2-31, 1500 kb/s, 32 fps, 16384 tbn, 32 tbc
+    Metadata:
+      encoder         : Lavc57.107.100 libx265
+Clipping frame in rate conversion by 0.000008
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+cur_dts is invalid (this is harmless if it occurs once at the start per stream)
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+frame=   91 fps=0.0 q=-0.0 size=       0kB time=00:00:01.84 bitrate=   0.2kbits/s speed=3.66x    [rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[rawvideo @ 0x7ffff1b869c0] PACKET SIZE: 13996800, STRIDE: 6480
+[out_0_0 @ 0x7ffff1b984c0] EOF on sink link out_0_0:default.
+No more output streams to write to, finishing.
+frame=  160 fps=0.0 q=-0.0 Lsize=       7kB time=00:00:04.90 bitrate=  12.1kbits/s speed=5.29x    
+video:5kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 53.206455%
+Input file #0 (yuv/4Pac_Man_in_360.yuv):
+  Input stream #0:0 (video): 161 packets read (2253484800 bytes); 161 frames decoded; 
+  Total: 161 packets (2253484800 bytes) demuxed
+Output file #0 (saida.mp4):
+  Output stream #0:0 (video): 160 frames encoded; 160 packets muxed (4834 bytes); 
+  Total: 160 packets (4834 bytes) muxed
+161 frames successfully decoded, 0 decoding errors
+[AVIOContext @ 0x7ffff1b8ada0] Statistics: 2 seeks, 4 writeouts
+[AVIOContext @ 0x7ffff1b8cc40] Statistics: 2253484800 bytes read, 0 seeks
