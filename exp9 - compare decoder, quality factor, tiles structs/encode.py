@@ -17,7 +17,8 @@ def main(argv):
 def encode():
     # Configura os objetos
     config = util.Config('config.json')
-    folders = dict(yuv='yuv-10s', hevc='hevc', mp4='mp4', segment='segment', dectime='dectime')
+    sl = util.check_system()['sl']
+    folders = dict(yuv=f'..{sl}yuv-10s', hevc='hevc', mp4='mp4', segment='segment', dectime='dectime')
     video = util.VideoParams(config=config, **folders)
 
     my_iterator = itertools.product(['ffmpeg'], config.videos_list, config.tile_list, ['rate_list', 'qp_list'])
