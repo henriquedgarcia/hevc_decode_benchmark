@@ -489,11 +489,16 @@ def decode(video, multithread=True):
     :param multithread:
     :return:
     """
+    if multithread is True:
+        sfix = 'multi'
+    else:
+        sfix = 'single'
+
     makedir(video.dectime_folder)
     for tile in range(1, video.number_tiles + 1):
         for chunk in range(1, video.duration + 1):
             video_path = f'{video.segment_folder}{video.sl}tile{tile}_{chunk:03}'
-            dectime_log = f'{video.dectime_folder}{video.sl}tile{tile}_{chunk:03}'
+            dectime_log = f'{video.dectime_folder}{video.sl}tile{tile}_{chunk:03}_{sfix}'
 
             if video.decoder in 'ffmpeg':
                 if multithread:
