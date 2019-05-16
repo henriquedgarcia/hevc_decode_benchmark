@@ -545,7 +545,7 @@ def _run_bench(command, log_path, ext, overwrite=True, log_mode='a'):
                         continue
 
                 with open('temp.txt', 'r', encoding='utf-8') as f1, \
-                        open(f'{log_path}.log', log_mode, encoding='utf-8') as f2:
+                        open(f'{log_path}.{ext}', log_mode, encoding='utf-8') as f2:
                     f2.write(f1.read())
                     break
 
