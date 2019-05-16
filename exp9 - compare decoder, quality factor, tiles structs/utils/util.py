@@ -274,7 +274,7 @@ def _encode_ffmpeg(video):
 
 
 def _encode_kvazaar(video: VideoParams):
-    makedir(video.mp4_folder)
+    makedir(video.hevc_folder)
     params_common = (f'--input {video.yuv_video} '
                      f'-n {video.duration * video.fps} '
                      f'--input-res {video.scale} '
