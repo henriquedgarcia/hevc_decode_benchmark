@@ -137,12 +137,12 @@ class Atribs:
         return self._project
 
     @project.setter
-    def project(self, value):
-        self._project = value
-        self.hevc = f'{value}{self.sl}{self.hevc_base}'
-        self.mp4 = f'{value}{self.sl}{self.mp4_base}'
-        self.segment = f'{value}{self.sl}{self.segment_base}'
-        self.dectime = f'{value}{self.sl}{self.dectime_base}'
+    def project(self, project_name):
+        self._project = project_name
+        self.hevc = f'{project_name}{self.sl}{self.hevc_base}'
+        self.mp4 = f'{project_name}{self.sl}{self.mp4_base}'
+        self.segment = f'{project_name}{self.sl}{self.segment_base}'
+        self.dectime = f'{project_name}{self.sl}{self.dectime_base}'
 
     @property
     def scale(self):
