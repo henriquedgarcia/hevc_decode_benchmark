@@ -40,3 +40,6 @@
 [submodule "exp11-calcula_siti/SITI"]
 	path = exp11-calcula_siti/SITI
 	url = https://github.com/henriquedgarcia/SITI.git
+[submodule "tools/facebooktransform360"]
+	path = tools/facebooktransform360
+	url = https://github.com/henriquedgarcia/transform360.git
