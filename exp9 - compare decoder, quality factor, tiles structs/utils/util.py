@@ -294,7 +294,7 @@ def _encode_kvazaar(video: VideoParams):
         tile_params = f' --tiles {video.tile_format} --slices tiles --mv-constraint frametilemargin'
         params_common += tile_params
 
-    video.hev_video = f'{video.hevc_folder}{video.sl}{video.basename}'
+    video.hevc_video = f'{video.hevc_folder}{video.sl}{video.basename}'
 
     command = f'{video.program} {params_common} --output {video.hevc_video}.hevc'
     run(command, video.hevc_video, 'hevc')
