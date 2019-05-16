@@ -496,20 +496,25 @@ def decode(video, multithread=True):
             dectime_log = f'{video.dectime_folder}{video.sl}tile{tile}_{chunk:03}'
 
             if video.decoder in 'ffmpeg':
-                command = f'{video.program} -hide_banner -benchmark -codec hevc -i {video_path}.mp4 -f null -'
                 if multithread:
-                    command = f'start /b /wait {command}'
+                    command = (f'start /b /wait '
+                               f'{video.program} '
+                               f'-hide_banner -benchmark -codec hevc -i {video_path}.mp4 '
+                               f'-f null -')
                 else:
                     # command = f'powershell -command "& {{Measure-Command -expression {{{command}}}}}"'
-                    command = f'start /b /wait /affinity 0x800 {command}'
+                    command = (f'start /b /wait /affinity 0x800 '
+                               f'{video.program} '
+                               f'-hide_banner -benchmark -codec hevc -i {video_path}.mp4 '
+                               f'-f null -')
 
             elif video.decoder in 'mp4client':
-                command = f'{video.program} -bench {video_path}.mp4'
-
                 if multithread:
-                    command = f'start /b /wait {command}.mp4'
+                    command = (f'start /b /wait '
+                               f'{video.program} -bench {video_path}.mp4')
                 else:
-                    command = f'start /b /wait /affinity 0x800 {command}.mp4'
+                    command = (f'start /b /wait /affinity 0x800 '
+                               f'{video.program} -bench {video_path}.mp4')
             else:
                 command = ''
                 exit('Decoders disponíveis são mp4client e ffmpeg.')
