@@ -21,7 +21,7 @@ def encode():
     folders = dict(yuv=f'..{sl}yuv-10s', hevc='hevc', mp4='mp4', segment='segment', dectime='dectime')
     video = util.VideoParams(config=config, **folders)
 
-    my_iterator = itertools.product(['ffmpeg'], config.videos_list, config.tile_list, ['rate_list', 'qp_list'])
+    my_iterator = itertools.product(['kvazaar'], config.videos_list, config.tile_list, ['rate_list', 'qp_list'])
     for factors in my_iterator:
         (video.encoder, video.name, video.tile_format, factor) = factors
 
