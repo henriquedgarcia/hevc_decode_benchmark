@@ -480,43 +480,36 @@ def make_segments(video):
         run(command, segment_log, 'log')
 
 
-def decode(video, decoder, factor, multithread=True):
+def decode(video, multithread=True):
     """
     :type video: VideoParams
     :param video:
-    :param decoder:
-    :param factor:
     :param multithread:
     :return:
     """
-
-    program = check_system()[decoder]  # pode ser mp4client ou ffmpeg
-    command = ''
-    for tile in range(1, video.number_tiles):
+    makedir(video.dectime_folder)
+    for tile in range(1, video.number_tiles + 1):
         for chunk in range(1, video.duration + 1):
-            video_path = f'{video.segment_folder[factor]}{video.sl}{video.basename[factor]}_tile{tile}_{chunk:03}'
-            dectime_log = f'{video.dectime_folder[factor]}{video.sl}{video.basename[factor]}_tile{tile}_{chunk:03}'
-            if program in 'ffmpeg':
-                if multithread:
-                    command = (f'powershell -command "& {{'
-                               f'Measure-Command -expression {{'
-                               f'{program} -benchmark -threads 0 -codec hevc -i {video_path} -f null -}}'
-                               f'"')
-                else:
-                    command = (f'powershell -command "& {{'
-                               f'Measure-Command -expression {{'
-                               f'{program} -benchmark -threads 1 -codec hevc -i {video_path} -f null -}}'
-                               f'"')
+            video_path = f'{video.segment_folder}{video.sl}tile{tile}_{chunk:03}'
+            dectime_log = f'{video.dectime_folder}{video.sl}tile{tile}_{chunk:03}'
 
-            elif program in 'mp4client':
-                command = f'{program} -bench {video_path}'
-
+            if video.decoder in 'ffmpeg':
+                command = f'{video.program} -hide_banner -benchmark -codec hevc -i {video_path}.mp4 -f null -'
                 if multithread:
                     command = f'start /b /wait {command}'
                 else:
+                    # command = f'powershell -command "& {{Measure-Command -expression {{{command}}}}}"'
                     command = f'start /b /wait /affinity 0x800 {command}'
 
+            elif video.decoder in 'mp4client':
+                command = f'{video.program} -bench {video_path}.mp4'
+
+                if multithread:
+                    command = f'start /b /wait {command}.mp4'
+                else:
+                    command = f'start /b /wait /affinity 0x800 {command}.mp4'
             else:
+                command = ''
                 exit('Decoders disponíveis são mp4client e ffmpeg.')
 
             _run_bench(command, dectime_log, 'log')
@@ -528,41 +521,24 @@ def _run_bench(command, log_path, ext, overwrite=True, log_mode='a'):
     else:
         attempts = 1
         while True:
+            print(command)
+
             try:
-                f = open('temp.tmp', 'w', encoding='utf-8')
-                break
+                with open('temp.txt', 'w', encoding='utf-8') as f:
+                    p = subprocess.run(command, shell=True, stdout=f, stderr=subprocess.STDOUT)
+                    print(f'Returncode = {p.returncode}')
+                    if p.returncode != 0:
+                        print(f'Tentativa {attempts}. Erro. Exitcode == {p.returncode}. Tentando novamente.')
+                        attempts += 1
+                        continue
+
+                with open('temp.txt', 'r', encoding='utf-8') as f1, \
+                        open(f'{log_path}.log', log_mode, encoding='utf-8') as f2:
+                    f2.write(f1.read())
+                    break
+
             except FileNotFoundError:
-                print(f'Tentativa {attempts}. Erro ao abrir o arquivo {"temp.tmp" + ".log"}')
+                print(f'Tentativa {attempts}. Erro ao abrir o arquivo {"temp.txt" + ".log"}')
+                print('Tentando novamente em 5s.')
                 attempts += 1
                 time.sleep(5)
-                print('Tentando novamente.')
-
-        attempts = 1
-        while True:
-            print(command)
-            p = subprocess.run(command, shell=True, stdout=f, stderr=subprocess.STDOUT)
-            f.close()
-            return_code = p.returncode
-            print(f'Returncode = {return_code}')
-
-            if return_code != 0:
-                print(f'Tentativa {attempts}. Erro. Exitcode == {p.returncode}. Tentando novamente.')
-                attempts += 1
-                continue
-            else:
-                attempts = 1
-                while True:
-                    try:
-                        f1 = open('temp.tmp', 'r', encoding='utf-8')
-                        f2 = open(f'{log_path}.log', log_mode, encoding='utf-8')
-                        break
-                    except FileNotFoundError:
-                        print(f'Tentativa {attempts}. Erro ao abrir o arquivo temp.tmp ou {log_path}.log')
-                        attempts += 1
-                        time.sleep(5)
-                        print('Tentando novamente.')
-
-                f2.write(f1.read())
-                f1.close()
-                f2.close()
-                break
