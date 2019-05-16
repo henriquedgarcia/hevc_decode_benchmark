@@ -303,6 +303,7 @@ def _encode_kvazaar(video: VideoParams):
 def check_system() -> dict:
     if platform.system() == 'Windows':
         sl = '\\'
+        sys = 'windows'
         ffmpeg = 'ffmpeg.exe'
         mp4box = 'C:\\"Program Files"\\GPAC\\MP4Box.exe'
         mp4client = 'C:\\"Program Files"\\GPAC\\MP4Client.exe'
@@ -310,6 +311,7 @@ def check_system() -> dict:
         siti = 'bin\\SITI.exe'
     else:
         sl = '/'
+        sys = 'unix'
         ffmpeg = 'ffmpeg'
         mp4box = 'MP4Box'
         kvazaar = 'kvazaar'
@@ -317,6 +319,7 @@ def check_system() -> dict:
         mp4client = 'MP4Client'
 
     programs = dict(sl=sl,
+                    sys=sys,
                     ffmpeg=ffmpeg,
                     mp4box=mp4box,
                     kvazaar=kvazaar,
