@@ -37,3 +37,6 @@
 [submodule "tools/opencv"]
 	path = tools/opencv
 	url = https://github.com/opencv/opencv.git
+[submodule "exp11-calcula_siti/SITI"]
+	path = exp11-calcula_siti/SITI
+	url = https://github.com/henriquedgarcia/SITI.git

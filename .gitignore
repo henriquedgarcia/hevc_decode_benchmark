@@ -23,3 +23,4 @@ exp9 - compare decoder, quality factor, tiles structs/dectime
 exp9 - compare decoder, quality factor, tiles structs/ffmpeg
 exp9 - compare decoder, quality factor, tiles structs/yuv
 exp9 - compare decoder, quality factor, tiles structs/yuv-10s
+.idea/*
