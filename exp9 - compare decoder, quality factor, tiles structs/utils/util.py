@@ -72,14 +72,16 @@ class Dectime:
 
 class Atribs:
     def __init__(self):
-        # Special params
-        self.factor = ''
-        self._quality = 0
+        # System params
         self._encoder = ''
         self._decoder = ''
         self.sl = ''  # OK
         self.config = None
         self.program = ''
+
+        # Streaming params
+        self.factor = ''
+        self._quality = 0
 
         # video properties
         self._scale = ''  # OK
