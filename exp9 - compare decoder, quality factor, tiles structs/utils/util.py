@@ -176,6 +176,15 @@ class Atribs:
         self.program = check_system()[value]
 
     @property
+    def decoder(self):
+        return self._decoder
+
+    @decoder.setter
+    def decoder(self, value):
+        self._decoder = value
+        self.program = check_system()[value]
+
+    @property
     def name(self):
         return self._name
 
@@ -183,15 +192,6 @@ class Atribs:
     def name(self, value):
         self._name = value
         self.yuv_video = f'{self.yuv}{self.sl}{self.config.videos_list[self.name]["filename"]}'
-
-    @property
-    def decoder(self) -> str:
-        return self._decoder
-
-    @decoder.setter
-    def decoder(self, value: str):
-        self._decoder = value
-        os.makedirs(f'{self.dectime_folder}', exist_ok=True)
 
 
 class VideoParams(Atribs):
