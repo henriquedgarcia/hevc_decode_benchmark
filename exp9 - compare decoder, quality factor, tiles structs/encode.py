@@ -7,7 +7,7 @@
 
 # Início
 import itertools
-import util
+from utils import util
 
 
 def main(argv):
