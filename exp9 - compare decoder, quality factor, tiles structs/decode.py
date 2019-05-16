@@ -14,7 +14,8 @@ sl = util.check_system()['sl']
 
 
 def main():
-    decode()
+    for _ in range(5):
+        decode()
 
 
 def decode():
