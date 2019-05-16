@@ -24,3 +24,6 @@ exp9 - compare decoder, quality factor, tiles structs/ffmpeg
 exp9 - compare decoder, quality factor, tiles structs/yuv
 exp9 - compare decoder, quality factor, tiles structs/yuv-10s
 .idea/*
+yuv-10s/*
+yuv-full/*
+*/__pycache__/*
