@@ -368,7 +368,8 @@ def collect_data(config: Config, project: str, decoder: str, bench_stamp: str = 
     for params in my_iterator:
         (name, fmt, factor, chunk, threads) = params
 
-        if name in ignore: continue
+        if name in ignore:
+            continue
 
         m, n = list(map(int, fmt.split('x')))
         q_factor = factor.split("_")[0]
