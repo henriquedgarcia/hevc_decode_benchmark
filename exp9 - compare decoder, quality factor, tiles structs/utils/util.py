@@ -524,7 +524,7 @@ def decode(video, multithread=True):
                 command = ''
                 exit('Decoders disponíveis são mp4client e ffmpeg.')
 
-            _run_bench(command, dectime_log, 'log')
+            _run_bench(command, dectime_log, 'txt')
 
 
 def _run_bench(command, log_path, ext, overwrite=True, log_mode='a'):
