@@ -22,8 +22,14 @@ def main():
 def decode():
     # Configura os objetos
     config = util.Config('config.json')
-    folders = dict(yuv=f'..{sl}yuv-10s', hevc='hevc', mp4='mp4', segment='segment', dectime='ffmpeg_dectime')
-    video = util.VideoParams(config=config, **folders)
+
+    # Cria objeto "video" com suas principais pastas
+    video = util.VideoParams(config=config,
+                             yuv=f'..{sl}yuv-10s',
+                             hevc_base='hevc',
+                             mp4_base='mp4',
+                             segment_base='segment',
+                             dectime_base='dectime')
     video.project = 'ffmpeg'
 
     my_iterator = itertools.product(['ffmpeg'], config.videos_list, config.tile_list, ['rate_list', 'qp_list'])
