@@ -14,7 +14,8 @@ sl = util.check_system()['sl']
 
 
 def main():
-    for _ in range(5):
+    for n in range(5):
+        print(f'Rodada {n}')
         decode()
 
 
