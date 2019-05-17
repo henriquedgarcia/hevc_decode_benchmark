@@ -344,57 +344,6 @@ def _encode_kvazaar(video: VideoParams):
     run(command, video.hevc_video, 'hevc')
 
 
-def check_system() -> dict:
-    if platform.system() == 'Windows':
-        sl = '\\'
-        sys = 'windows'
-        ffmpeg = 'ffmpeg.exe'
-        mp4box = 'C:\\"Program Files"\\GPAC\\MP4Box.exe'
-        mp4client = 'C:\\"Program Files"\\GPAC\\MP4Client.exe'
-        kvazaar = 'bin\\kvazaar.exe'
-        siti = 'bin\\SITI.exe'
-    else:
-        sl = '/'
-        sys = 'unix'
-        ffmpeg = 'ffmpeg'
-        mp4box = 'MP4Box'
-        kvazaar = 'kvazaar'
-        siti = 'bin/siti'
-        mp4client = 'MP4Client'
-
-    programs = dict(sl=sl,
-                    sys=sys,
-                    ffmpeg=ffmpeg,
-                    mp4box=mp4box,
-                    kvazaar=kvazaar,
-                    siti=siti,
-                    mp4client=mp4client)
-    return programs
-
-
-def save_json(obj: Dectime, filename: str):
-    with open(filename, 'w') as f:
-        json.dump(obj, f, indent=2)
-
-
-def load_json(filename: str = 'times.json') -> dict:
-    with open(filename, 'r') as f:
-        data = json.load(f)
-    return data
-
-
-def show_json(obj: dict, show=True, ret=True):
-    output = json.dumps(obj, indent=2)
-    if show:
-        print(output)
-    if ret:
-        return output
-
-
-def makedir(dirname: str):
-    os.makedirs(dirname, exist_ok=True)
-
-
 def collect_data(config: Config, project: str, decoder: str, bench_stamp: str = '', ignore: tuple = ()) -> Dectime:
     if decoder in 'ffmpeg':
         bench_stamp = ''
@@ -596,3 +545,53 @@ def _run_bench(command, log_path, ext, overwrite=True, log_mode='a'):
                 print('Tentando novamente em 5s.')
                 attempts += 1
                 time.sleep(5)
+# Utilitários e funções gerais
+def check_system() -> dict:
+    if platform.system() == 'Windows':
+        sl = '\\'
+        sys = 'windows'
+        ffmpeg = 'ffmpeg.exe'
+        mp4box = 'C:\\"Program Files"\\GPAC\\MP4Box.exe'
+        mp4client = 'C:\\"Program Files"\\GPAC\\MP4Client.exe'
+        kvazaar = 'bin\\kvazaar.exe'
+        siti = 'bin\\SITI.exe'
+    else:
+        sl = '/'
+        sys = 'unix'
+        ffmpeg = 'ffmpeg'
+        mp4box = 'MP4Box'
+        kvazaar = 'kvazaar'
+        siti = 'bin/siti'
+        mp4client = 'MP4Client'
+
+    programs = dict(sl=sl,
+                    sys=sys,
+                    ffmpeg=ffmpeg,
+                    mp4box=mp4box,
+                    kvazaar=kvazaar,
+                    siti=siti,
+                    mp4client=mp4client)
+    return programs
+
+
+def save_json(obj: Dectime, filename: str):
+    with open(filename, 'w') as f:
+        json.dump(obj, f, indent=2)
+
+
+def load_json(filename: str = 'times.json') -> dict:
+    with open(filename, 'r') as f:
+        data = json.load(f)
+    return data
+
+
+def show_json(obj: dict, show=True, ret=True):
+    output = json.dumps(obj, indent=2)
+    if show:
+        print(output)
+    if ret:
+        return output
+
+
+def makedir(dirname: str):
+    os.makedirs(dirname, exist_ok=True)
