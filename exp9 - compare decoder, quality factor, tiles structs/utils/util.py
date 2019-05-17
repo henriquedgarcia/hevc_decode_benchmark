@@ -81,7 +81,7 @@ class Atribs:
 
         # Streaming params
         self.factor = ''
-        self._quality = 0
+        self.quality = 0
 
         # video properties
         self._scale = ''  # OK
@@ -96,31 +96,115 @@ class Atribs:
         self.number_tiles = 0
 
         # file properties
-        self._project = ''  # OK
-        self._name = ''  # OK
+        self.project = ''  # OK
+        self.name = ''  # OK
 
-        self.basename = {}
+        self._basename = ''
 
         self.yuv = ''  # OK
         self.hevc_base = ''  # OK
         self.mp4_base = ''  # OK
         self.segment_base = ''  # OK
         self.dectime_base = ''  # OK
-        self.hevc = ''  # OK
-        self.mp4 = ''  # OK
-        self.segment = ''  # OK
-        self.dectime = ''  # OK
+        self._hevc = ''  # OK
+        self._mp4 = ''  # OK
+        self._segment = ''  # OK
+        self._dectime = ''  # OK
 
-        self.yuv_video = ''
+        self._yuv_video = ''
         self.hevc_video = ''
         self.mp4_video = ''
         self.tiled_video = ''
 
-        self.yuv_folder = ''
-        self.hevc_folder = ''
-        self.mp4_folder = ''
-        self.segment_folder = ''
-        self.dectime_folder = ''
+        self._hevc_folder = ''
+        self._mp4_folder = ''
+        self._segment_folder = ''
+        self._dectime_folder = ''
+
+    # --- Diretórios base ---
+    @property
+    def hevc(self):
+        if self.project in '':
+            exit('[hevc] É preciso definir o atributo "project" antes.')
+        self._hevc = f'{self.project}{self.sl}{self.hevc_base}'
+        return self._hevc
+
+    @property
+    def mp4(self):
+        if self.project in '':
+            exit('[mp4] É preciso definir o atributo "project" antes.')
+        self._mp4 = f'{self.project}{self.sl}{self.mp4_base}'
+        return self._mp4
+
+    @property
+    def segment(self):
+        if self.project in '':
+            exit('[segment] É preciso definir o atributo "project" antes.')
+        self._segment = f'{self.project}{self.sl}{self.segment_base}'
+        return self._segment
+
+    @property
+    def dectime(self):
+        if self.project in '':
+            exit('[dectime] É preciso definir o atributo "project" antes.')
+        self._dectime = f'{self.project}{self.sl}{self.dectime_base}'
+        return self._dectime
+
+    @property
+    def basename(self):
+        if self.factor in '':
+            exit('[basename] É preciso definir o atributo factor antes.')
+        if self.quality == 0:
+            exit('[basename] É preciso definir o atributo quality antes.')
+
+        self._basename = (f'{self.name}_'
+                          f'{self.scale}_'
+                          f'{self.fps}_'
+                          f'{self.tile_format}_'
+                          f'{self.factor}{self.quality}')
+        return self._basename
+
+    @property
+    def hevc_folder(self):
+        self._hevc_folder = f'{self.hevc}{self.sl}{self.basename}'
+        makedir(self._hevc_folder)
+        return self._hevc_folder
+
+    @property
+    def mp4_folder(self):
+        self._mp4_folder = f'{self.mp4}{self.sl}{self.basename}'
+        makedir(self._mp4_folder)
+        return self._mp4_folder
+
+    @property
+    def dectime_folder(self):
+        self._dectime_folder = f'{self.dectime}{self.sl}{self.basename}'
+        makedir(self._dectime_folder)
+        return self._dectime_folder
+
+    @property
+    def segment_folder(self):
+        self._segment_folder = f'{self.segment}{self.sl}{self.basename}'
+        makedir(self._segment_folder)
+        return self._segment_folder
+
+    @property
+    def yuv_video(self):
+        if self.name in '':
+            exit('[yuv_video] É preciso definir o atributo "name" antes.')
+        self._yuv_video = f'{self.yuv}{self.sl}{self.config.videos_list[self.name]["filename"]}'
+        return self._yuv_video
+    # -----------------------------
+
+    # --- Propriedades do vídeo ---
+    @property
+    def scale(self):
+        return self._scale
+
+    @scale.setter
+    def scale(self, value):
+        self._scale = value
+        self.width, self.height = list(map(int, value.split('x')))
 
     @property
     def tile_format(self):
@@ -134,40 +218,9 @@ class Atribs:
         self.tile_h = int(self.height / n)
         self.number_tiles = m * n
 
-    @property
-    def project(self):
-        return self._project
+    # -----------------------------
 
-    @project.setter
-    def project(self, project_name):
-        self._project = project_name
-        self.hevc = f'{project_name}{self.sl}{self.hevc_base}'
-        self.mp4 = f'{project_name}{self.sl}{self.mp4_base}'
-        self.segment = f'{project_name}{self.sl}{self.segment_base}'
-        self.dectime = f'{project_name}{self.sl}{self.dectime_base}'
-
-    @property
-    def scale(self):
-        return self._scale
-
-    @scale.setter
-    def scale(self, value):
-        self._scale = value
-        self.width, self.height = list(map(int, value.split('x')))
-
-    @property
-    def quality(self):
-        return self._quality
-
-    @quality.setter
-    def quality(self, value):
-        self._quality = value
-        self.basename = f'{self.name}_{self.scale}_{self.fps}_{self.tile_format}_{self.factor}{self._quality}'
-        self.hevc_folder = f'{self.hevc}'
-        self.mp4_folder = f'{self.mp4}{self.sl}{self.basename}'
-        self.dectime_folder = f'{self.dectime}{self.sl}{self.basename}'
-        self.segment_folder = f'{self.segment}{self.sl}{self.basename}'
-
+    # --- Codecs ---
     @property
     def encoder(self):
         return self._encoder
@@ -185,15 +238,6 @@ class Atribs:
     def decoder(self, value):
         self._decoder = value
         self.program = check_system()[value]
-
-    @property
-    def name(self):
-        return self._name
-
-    @name.setter
-    def name(self, value):
-        self._name = value
-        self.yuv_video = f'{self.yuv}{self.sl}{self.config.videos_list[self.name]["filename"]}'
 
 
 class VideoParams(Atribs):
