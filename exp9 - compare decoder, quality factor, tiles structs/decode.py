@@ -32,16 +32,24 @@ def decode():
                              dectime_base='dectime')
     video.project = 'ffmpeg'
 
-    my_iterator = itertools.product(['ffmpeg'], config.videos_list, config.tile_list, ['rate_list', 'qp_list'])
+    dec = ['mp4client', 'ffmpeg']
+    # dec = ['mp4client']
+    mt = [True, False]
+    my_iterator = itertools.product(dec,
+                                    config.videos_list,
+                                    config.tile_list,
+                                    ['rate', 'qp'],
+                                    mt)
     for factors in my_iterator:
-        (video.decoder, video.name, video.tile_format, factor) = factors
+        (video.decoder, video.name, video.tile_format, video.factor, multithread) = factors
+
+        video.dectime_base = f'dectime_{video.decoder}'
 
         # Ignore
         if video.name not in ('om_nom', 'lions', 'pac_man', 'rollercoaster'): continue
 
-        video.factor = factor.split("_")[0]
-        for video.quality in getattr(config, factor):
-            util.decode(video=video, multithread=False)
+        for video.quality in getattr(config, f'{video.factor}_list'):
+            util.decode(video=video, multithread=multithread)
 
 
 if __name__ == '__main__':
