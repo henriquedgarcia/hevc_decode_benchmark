@@ -6,6 +6,7 @@ import subprocess
 import time
 
 
+# Minhas classes
 class Config:
     def __init__(self, filename: str = ''):
         self.filename = filename
@@ -257,6 +258,7 @@ class VideoParams(Atribs):
         self.dectime_base = dectime_base
 
 
+# Funções para codificação
 def encode(video: VideoParams):
     if video.encoder in 'kvazaar':
         _encode_kvazaar(video=video)
@@ -431,6 +433,7 @@ def make_segments(video):
         run(command, segment_log, 'log')
 
 
+# Funções para decodificação
 def decode(video, multithread=True):
     """
     :type video: VideoParams
