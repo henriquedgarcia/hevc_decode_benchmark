@@ -269,7 +269,6 @@ def encode(video: VideoParams):
 
 
 def _encode_ffmpeg(video):
-    makedir(video.mp4_folder)
 
     global_params = '-hide_banner -y'
     param_in = (f'-s {video.scale} '
@@ -320,7 +319,6 @@ def _encode_ffmpeg(video):
 
 
 def _encode_kvazaar(video: VideoParams):
-    makedir(video.hevc_folder)
     params_common = (f'--input {video.yuv_video} '
                      f'-n {video.duration * video.fps} '
                      f'--input-res {video.scale} '
@@ -473,7 +471,7 @@ def encapsule(video: VideoParams):
     if video.encoder in 'ffmpeg':
         pass
     elif video.encoder in 'kvazaar':
-        makedir(video.mp4_folder)
+
         mp4box = check_system()['mp4box']
         video.mp4_video = f'{video.mp4_folder}{video.sl}{video.basename}'
         command = f'{mp4box} -add {video.hevc_video}.hevc:split_tiles -new {video.mp4_video}.mp4'
@@ -516,7 +514,7 @@ def make_segments(video):
     :return:
     """
     mp4box = check_system()['mp4box']
-    makedir(video.segment_folder)
+
     for tile_count in range(1, video.number_tiles + 1):
         segment_log = f'{video.segment_folder}{video.sl}{video.basename}_tile{tile_count}'
         video.tiled_video = f'{video.mp4_folder}{video.sl}tile{tile_count}'
