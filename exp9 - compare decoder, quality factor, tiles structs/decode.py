@@ -37,9 +37,7 @@ def decode():
         (video.decoder, video.name, video.tile_format, factor) = factors
 
         # Ignore
-        if video.name in ('surf', '', '', '', '', 'clans', 'super_mario', 'ski', 'jaws', 'maldives', 'elephants',
-                          'ninja_turtles', 'angels_fall', 'lion_king', 'pluto', 'ball', 'manhattan', 'venice'):
-            continue
+        if video.name not in ('om_nom', 'lions', 'pac_man', 'rollercoaster'): continue
 
         video.factor = factor.split("_")[0]
         for video.quality in getattr(config, factor):
