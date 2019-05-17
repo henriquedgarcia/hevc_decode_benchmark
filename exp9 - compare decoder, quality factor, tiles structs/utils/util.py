@@ -344,48 +344,6 @@ def _encode_kvazaar(video: VideoParams):
     run(command, video.hevc_video, 'hevc')
 
 
-def collect_data(config: Config, project: str, decoder: str, bench_stamp: str = '', ignore: tuple = ()) -> Dectime:
-    if decoder in 'ffmpeg':
-        bench_stamp = ''
-    elif decoder in 'mp4client':
-        bench_stamp = 'tempo:'
-
-    sl = check_system()['sl']
-    dec_folder = f'{project}{sl}dectime'
-    seg_folder = f'{project}{sl}segment'
-    dec_time = Dectime()
-
-    my_iterator = itertools.product(config.videos_list, config.tile_list, ['rate_list', 'qp_list'],
-                                    range(1, config.duration + 1), ['multi', 'single'])
-
-    for params in my_iterator:
-        (name, fmt, factor, chunk, threads) = params
-
-        if name in ignore:
-            continue
-
-        m, n = list(map(int, fmt.split('x')))
-        q_factor = factor.split("_")[0]
-
-        for quality in getattr(config, factor):
-            basename = f'{name}_{config.scale}_{config.fps}_{fmt}_{q_factor}{quality}'
-            print(f'Processing {basename}.')
-            for tile in range(1, m * n + 1):
-                dec_time.update(name=name, fmt=fmt, factor=q_factor, quality=quality, tile=tile, chunk=chunk)
-
-                video_path = f'{seg_folder}{sl}{basename}{sl}{basename}_tile{tile}_{chunk:03}.mp4'
-                log_file = f'{basename}_tile{tile}_{chunk:03}_{threads}.log'
-                log_path = f'{dec_folder}{sl}{basename}{sl}{log_file}'
-
-                size = os.path.getsize(video_path)
-                dec_time.size = size
-
-                times = _get_times(log_path, bench_stamp)
-                dec_time.times = times
-
-    return dec_time
-
-
 def _get_times(filename, bench_stamp, decoder='mp4client'):
     times = []
     with open(filename, 'r') as f:
@@ -545,6 +503,51 @@ def _run_bench(command, log_path, ext, overwrite=True, log_mode='a'):
                 print('Tentando novamente em 5s.')
                 attempts += 1
                 time.sleep(5)
+
+
+# Funções para estatística
+def collect_data(config: Config, project: str, decoder: str, bench_stamp: str = '', ignore: tuple = ()) -> Dectime:
+    if decoder in 'ffmpeg':
+        bench_stamp = ''
+    elif decoder in 'mp4client':
+        bench_stamp = 'tempo:'
+
+    sl = check_system()['sl']
+    dec_folder = f'{project}{sl}dectime'
+    seg_folder = f'{project}{sl}segment'
+    dec_time = Dectime()
+
+    my_iterator = itertools.product(config.videos_list, config.tile_list, ['rate_list', 'qp_list'],
+                                    range(1, config.duration + 1), ['multi', 'single'])
+
+    for params in my_iterator:
+        (name, fmt, factor, chunk, threads) = params
+
+        if name in ignore:
+            continue
+
+        m, n = list(map(int, fmt.split('x')))
+        q_factor = factor.split("_")[0]
+
+        for quality in getattr(config, factor):
+            basename = f'{name}_{config.scale}_{config.fps}_{fmt}_{q_factor}{quality}'
+            print(f'Processing {basename}.')
+            for tile in range(1, m * n + 1):
+                dec_time.update(name=name, fmt=fmt, factor=q_factor, quality=quality, tile=tile, chunk=chunk)
+
+                video_path = f'{seg_folder}{sl}{basename}{sl}{basename}_tile{tile}_{chunk:03}.mp4'
+                log_file = f'{basename}_tile{tile}_{chunk:03}_{threads}.log'
+                log_path = f'{dec_folder}{sl}{basename}{sl}{log_file}'
+
+                size = os.path.getsize(video_path)
+                dec_time.size = size
+
+                times = _get_times(log_path, bench_stamp)
+                dec_time.times = times
+
+    return dec_time
+
+
 # Utilitários e funções gerais
 def check_system() -> dict:
     if platform.system() == 'Windows':
