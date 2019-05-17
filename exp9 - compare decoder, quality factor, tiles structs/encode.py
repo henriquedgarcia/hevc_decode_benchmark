@@ -27,19 +27,23 @@ def encode():
                              segment_base='segment',
                              dectime_base='dectime')
 
-    my_iterator = itertools.product(['kvazaar'], config.videos_list, config.tile_list, ['rate_list', 'qp_list'])
+    # Cria um iterador produto carnesiano de todos os parametros da caracterização
+    my_iterator = itertools.product(['kvazaar', 'ffmpeg'], config.videos_list, config.tile_list, ['rate', 'qp'])
+
+    # Itera sobre o iterador
     for factors in my_iterator:
-        (video.encoder, video.name, video.tile_format, factor) = factors
+        # Define atributos básicos
+        (video.encoder, video.name, video.tile_format, video.factor) = factors
+        video.project = video.encoder
 
         # Ignore
         if video.name in ('surf', '', '', '', '', 'clans', 'super_mario', 'ski', 'jaws', 'maldives', 'elephants',
                           'ninja_turtles', 'angels_fall', 'lion_king', 'pluto', 'ball', 'manhattan', 'venice'):
             continue
 
-        video.project = video.encoder
-        video.factor = factor.split("_")[0]
 
-        for video.quality in getattr(config, factor):
+        # Para cada qualidade
+        for video.quality in getattr(config, f'{video.factor}_list'):
             util.encode(video)
             util.encapsule(video)
             util.extract_tile(video)
