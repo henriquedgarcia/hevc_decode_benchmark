@@ -37,10 +37,7 @@ def encode():
         video.project = video.encoder
 
         # Ignore
-        if video.name in ('surf', '', '', '', '', 'clans', 'super_mario', 'ski', 'jaws', 'maldives', 'elephants',
-                          'ninja_turtles', 'angels_fall', 'lion_king', 'pluto', 'ball', 'manhattan', 'venice'):
-            continue
-
+        if video.name not in ('om_nom', 'lions', 'pac_man', 'rollercoaster'): continue
 
         # Para cada qualidade
         for video.quality in getattr(config, f'{video.factor}_list'):
