@@ -35,6 +35,9 @@ class GraphsMaker:
 
     class Label(str):
         pass
+
+    class Title(str):
+        pass
 class VideoSegment:
     class AutoDict(dict):
         def __missing__(self, key):
