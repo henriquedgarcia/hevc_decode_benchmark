@@ -312,7 +312,8 @@ class Atribs:
 
 
 class VideoParams(Atribs):
-    def __init__(self, config, yuv='yuv', hevc_base='hevc', mp4_base='mp4', segment_base='segment', dectime_base='dectime'):
+    def __init__(self, config, yuv='yuv', hevc_base='hevc', mp4_base='mp4', segment_base='segment',
+                 dectime_base='dectime'):
         super().__init__()
         # Initial actions
         self.sl = check_system()['sl']
