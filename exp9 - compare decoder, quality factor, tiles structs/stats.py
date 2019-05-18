@@ -5,6 +5,47 @@ from utils import util
 
 
 def main():
+    # stats()
+    graph()
+
+
+def graph():
+    config = util.Config('config.json')
+    times = util.load_json('times.json')
+    video_graph = util.VideoSegment(config=config, dectime=times)
+
+    decoder = ['ffmpeg', 'mp4client']
+    factor = ['rate', 'qp']
+    multithread = ['multi', 'single']
+
+    for (video_graph.decoder,
+         video_graph.name,
+         video_graph.fmt,
+         video_graph.factor,
+         video_graph.multithread) in it(decoder,
+                                        config.videos_list,
+                                        config.tile_list,
+                                        factor,
+                                        multithread):
+
+        # Ignore
+        if video_graph.name not in ('om_nom',
+                                    'lions',
+                                    'pac_man',
+                                    'rollercoaster'): continue
+
+        for video_graph.quality in getattr(config, f'{video_graph.factor}_list'):
+            for tiles in range(1, video_graph.num_tiles + 1):
+                video_graph.tile = tiles
+                for chunks in range(1, video_graph.duration * video_graph.fps + 1):
+                    video_graph.chunk = chunks
+
+                    size = video_graph.size
+                    ut = video_graph.times['ut']
+                    st = video_graph.times['st']
+                    rt = video_graph.times['rt']
+
+
 
 def stats():
     # Configura os objetos
