@@ -29,6 +29,7 @@ class Config:
             setattr(self, key, config_data[key])
 
 
+class GraphsMaker:
 class VideoSegment:
     class AutoDict(dict):
         def __missing__(self, key):
