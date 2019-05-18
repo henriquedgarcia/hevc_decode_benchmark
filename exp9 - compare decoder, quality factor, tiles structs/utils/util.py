@@ -169,6 +169,20 @@ class Atribs:
         return self._segment_folder
 
     @property
+    def segment_video(self):
+        if self.tile == 0 or self.chunk == 0:
+            exit('[dectime] É preciso definir o atributo "tile" ou "chunk" antes.')
+        self._segment_video = f'{self.segment_folder}{self.sl}tile{self.tile}_{self.chunk:03}'
+        return self._segment_video
+
+    @property
+    def dectime_log(self):
+        if self.tile == 0 or self.chunk == 0:
+            exit('[dectime] É preciso definir o atributo "tile" ou "chunk" antes.')
+        self._dectime_log = f'{self.dectime_folder}{self.sl}tile{self.tile}_{self.chunk:03}_{self.threads}'
+        return self._dectime_log
+
+    @property
     def yuv_video(self):
         if self.name in '':
             exit('[yuv_video] É preciso definir o atributo "name" antes.')
