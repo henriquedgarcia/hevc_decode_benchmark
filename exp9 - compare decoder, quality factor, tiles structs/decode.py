@@ -28,17 +28,19 @@ def decode():
                              yuv=f'..{sl}yuv-10s')
     
     video.project = 'ffmpeg'
-
-    dec = ['mp4client', 'ffmpeg']
-    # dec = ['mp4client']
-    mt = [True, False]
-    my_iterator = itertools.product(dec,
-                                    config.videos_list,
-                                    config.tile_list,
-                                    ['rate', 'qp'],
-                                    mt)
-    for factors in my_iterator:
-        (video.decoder, video.name, video.tile_format, video.factor, multithread) = factors
+    decoders = ['ffmpeg', 'mp4client']
+    threads = ['single']  # 'single' or 'multi'
+    factor = ['rate', 'qp']
+    
+    for (video.decoder, 
+         video.name, 
+         video.tile_format, 
+         video.factor, 
+         video.threads) in itertools.product(decoders,
+                                             config.videos_list,
+                                             config.tile_list,
+                                             factor,
+                                             threads):
 
         video.dectime_base = f'dectime_{video.decoder}'
         for video.quality in getattr(config, f'{video.factor}_list'):
