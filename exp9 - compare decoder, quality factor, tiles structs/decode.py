@@ -25,11 +25,8 @@ def decode():
 
     # Cria objeto "video" com suas principais pastas
     video = util.VideoParams(config=config,
-                             yuv=f'..{sl}yuv-10s',
-                             hevc_base='hevc',
-                             mp4_base='mp4',
-                             segment_base='segment',
-                             dectime_base='dectime')
+                             yuv=f'..{sl}yuv-10s')
+    
     video.project = 'ffmpeg'
 
     dec = ['mp4client', 'ffmpeg']
