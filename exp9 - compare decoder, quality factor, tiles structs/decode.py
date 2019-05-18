@@ -46,7 +46,7 @@ def decode():
         video.quality_list = getattr(config, f'{video.factor}_list')
         
         for video.quality in video.quality_list:
-            util.decode(video=video, multithread=multithread)
+            util.decode(video=video)
 
 
 if __name__ == '__main__':
