@@ -30,6 +30,8 @@ class Config:
 
 
 class GraphsMaker:
+    class Legend(str):
+        pass
 class VideoSegment:
     class AutoDict(dict):
         def __missing__(self, key):
