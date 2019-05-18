@@ -434,36 +434,33 @@ def decode(video, multithread=True):
     :param multithread:
     :return:
     """
-    for tile in range(1, video.number_tiles + 1):
-        for chunk in range(1, video.duration + 1):
-            video_path = f'{video.segment_folder}{video.sl}tile{tile}_{chunk:03}'
-            dectime_log = f'{video.dectime_folder}{video.sl}tile{tile}_{chunk:03}_{sfix}'
-
+    for video.tile in range(1, video.number_tiles + 1):
+        for video.chunk in range(1, video.duration + 1):
             if video.decoder in 'ffmpeg':
                 if video.threads in 'multi':
                     command = (f'start /b /wait '
                                f'{video.program} '
-                               f'-hide_banner -benchmark -codec hevc -i {video_path}.mp4 '
+                               f'-hide_banner -benchmark -codec hevc -i {video.segment_video}.mp4 '
                                f'-f null -')
                 else:
                     # command = f'powershell -command "& {{Measure-Command -expression {{{command}}}}}"'
                     command = (f'start /b /wait /affinity 0x800 '
                                f'{video.program} '
-                               f'-hide_banner -benchmark -codec hevc -i {video_path}.mp4 '
+                               f'-hide_banner -benchmark -codec hevc -i {video.segment_video}.mp4 '
                                f'-f null -')
 
             elif video.decoder in 'mp4client':
                 if video.threads in 'multi':
                     command = (f'start /b /wait '
-                               f'{video.program} -bench {video_path}.mp4')
+                               f'{video.program} -bench {video.segment_video}.mp4')
                 else:
                     command = (f'start /b /wait /affinity 0x800 '
-                               f'{video.program} -bench {video_path}.mp4')
+                               f'{video.program} -bench {video.segment_video}.mp4')
             else:
                 command = ''
                 exit('Decoders disponíveis são mp4client e ffmpeg.')
 
-            _run_bench(command, dectime_log, 'txt')
+            _run_bench(command, video.dectime_log, 'txt')
 
 
 def _run_bench(command, log_path, ext, overwrite=True, log_mode='a'):
