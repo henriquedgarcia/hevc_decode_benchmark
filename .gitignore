@@ -26,4 +26,4 @@ exp9 - compare decoder, quality factor, tiles structs/yuv-10s
 .idea/*
 yuv-10s/*
 yuv-full/*
-*/__pycache__/*
+original/
