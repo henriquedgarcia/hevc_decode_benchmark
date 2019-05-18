@@ -110,10 +110,6 @@ class Atribs:
         self.mp4_base = ''  # OK
         self.segment_base = ''  # OK
         self.dectime_base = ''  # OK
-        self._hevc = ''  # OK
-        self._mp4 = ''  # OK
-        self._segment = ''  # OK
-        self._dectime = ''  # OK
 
         self._yuv_video = ''
         self.hevc_video = ''
@@ -126,34 +122,6 @@ class Atribs:
         self._dectime_folder = ''
 
     # --- Diretórios base ---
-    @property
-    def hevc(self):
-        if self.project in '':
-            exit('[hevc] É preciso definir o atributo "project" antes.')
-        self._hevc = f'{self.project}{self.sl}{self.hevc_base}'
-        return self._hevc
-
-    @property
-    def mp4(self):
-        if self.project in '':
-            exit('[mp4] É preciso definir o atributo "project" antes.')
-        self._mp4 = f'{self.project}{self.sl}{self.mp4_base}'
-        return self._mp4
-
-    @property
-    def segment(self):
-        if self.project in '':
-            exit('[segment] É preciso definir o atributo "project" antes.')
-        self._segment = f'{self.project}{self.sl}{self.segment_base}'
-        return self._segment
-
-    @property
-    def dectime(self):
-        if self.project in '':
-            exit('[dectime] É preciso definir o atributo "project" antes.')
-        self._dectime = f'{self.project}{self.sl}{self.dectime_base}'
-        return self._dectime
-
     @property
     def basename(self):
         if self.factor in '':
@@ -170,25 +138,33 @@ class Atribs:
 
     @property
     def hevc_folder(self):
-        self._hevc_folder = f'{self.hevc}{self.sl}{self.basename}'
+        if self.project in '':
+            exit('[hevc] É preciso definir o atributo "project" antes.')
+        self._hevc_folder = f'{self.project}{self.sl}{self.hevc_base}{self.sl}{self.basename}'
         makedir(self._hevc_folder)
         return self._hevc_folder
 
     @property
     def mp4_folder(self):
-        self._mp4_folder = f'{self.mp4}{self.sl}{self.basename}'
+        if self.project in '':
+            exit('[mp4] É preciso definir o atributo "project" antes.')
+        self._mp4_folder = f'{self.project}{self.sl}{self.mp4_base}{self.sl}{self.basename}'
         makedir(self._mp4_folder)
         return self._mp4_folder
 
     @property
     def dectime_folder(self):
-        self._dectime_folder = f'{self.dectime}{self.sl}{self.basename}'
+        if self.project in '':
+            exit('[dectime] É preciso definir o atributo "project" antes.')
+        self._dectime_folder = f'{self.project}{self.sl}{self.dectime_base}{self.sl}{self.basename}'
         makedir(self._dectime_folder)
         return self._dectime_folder
 
     @property
     def segment_folder(self):
-        self._segment_folder = f'{self.segment}{self.sl}{self.basename}'
+        if self.project in '':
+            exit('[dectime] É preciso definir o atributo "project" antes.')
+        self._segment_folder = f'{self.project}{self.sl}{self.segment_base}{self.sl}{self.basename}'
         makedir(self._segment_folder)
         return self._segment_folder
 
