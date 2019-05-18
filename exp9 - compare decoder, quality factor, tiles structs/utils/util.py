@@ -434,18 +434,13 @@ def decode(video, multithread=True):
     :param multithread:
     :return:
     """
-    if multithread is True:
-        sfix = 'multi'
-    else:
-        sfix = 'single'
-
     for tile in range(1, video.number_tiles + 1):
         for chunk in range(1, video.duration + 1):
             video_path = f'{video.segment_folder}{video.sl}tile{tile}_{chunk:03}'
             dectime_log = f'{video.dectime_folder}{video.sl}tile{tile}_{chunk:03}_{sfix}'
 
             if video.decoder in 'ffmpeg':
-                if multithread:
+                if video.threads in 'multi':
                     command = (f'start /b /wait '
                                f'{video.program} '
                                f'-hide_banner -benchmark -codec hevc -i {video_path}.mp4 '
@@ -458,7 +453,7 @@ def decode(video, multithread=True):
                                f'-f null -')
 
             elif video.decoder in 'mp4client':
-                if multithread:
+                if video.threads in 'multi':
                     command = (f'start /b /wait '
                                f'{video.program} -bench {video_path}.mp4')
                 else:
