@@ -6,9 +6,37 @@ from utils import util
 
 def main():
 
+def stats():
+    # Configura os objetos
     config = util.Config('config.json')
-    dectime = util.collect_data(config=config, project='kvazaar', decoder='mp4client', ignore=ignore)
-    util.save_json(dectime, 'times.json')
+
+    # Base object
+    video_seg = util.VideoSegment(config=config)
+    video_seg.project = 'ffmpeg'
+    video_seg.segment_base = 'segment'
+
+    # To iterate
+    decoders = ['ffmpeg', 'mp4client']
+    videos_list = config.videos_list
+    tile_list = config.tile_list
+    q_factors = ['rate', 'qp']
+    multithreads = [False, True]
+
+    for factors in it(decoders, videos_list, tile_list, q_factors, multithreads):
+        video_seg.decoder = factors[0]
+        video_seg.name = factors[1]
+        video_seg.fmt = factors[2]
+        video_seg.factor = factors[3]
+        video_seg.multithread = factors[4]
+
+        # Ignore
+        if video_seg.name not in ('om_nom', 'lions', 'pac_man', 'rollercoaster'):
+            continue
+
+        for video_seg.quality in getattr(config, f'{video_seg.factor}_list'):
+            times = util.collect_data(video_seg=video_seg)
+
+    util.save_json(times, 'times.json')
 
     # graph_chunk_X_time_X_tile_rate()
     # graph2()
