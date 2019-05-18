@@ -28,13 +28,19 @@ def encode():
                              dectime_base='dectime')
 
     # Cria um iterador produto carnesiano de todos os parametros da caracterização
-    my_iterator = itertools.product(['kvazaar', 'ffmpeg'], config.videos_list, config.tile_list, ['rate', 'qp'])
+    my_iterator = itertools.product(['kvazaar', 'ffmpeg'],
+                                    config.videos_list,
+                                    config.tile_list,
+                                    ['rate', 'qp'])
 
     # Itera sobre o iterador
     for factors in my_iterator:
         # Define atributos básicos
-        (video.encoder, video.name, video.tile_format, video.factor) = factors
+        video.encoder = factors[0]
         video.project = video.encoder
+        video.name = factors[1]
+        video.tile_format = factors[2]
+        video.factor = factors[3]
 
         # Ignore
         if video.name not in ('om_nom', 'lions', 'pac_man', 'rollercoaster'): continue
@@ -49,4 +55,5 @@ def encode():
 
 if __name__ == '__main__':
     import sys
+
     main(sys.argv)
