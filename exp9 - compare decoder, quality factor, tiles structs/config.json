@@ -5,12 +5,10 @@
   "duration": 10,
   "qp_list": [
     20,
-    30,
     40
   ],
   "rate_list": [
     2000000,
-    8000000,
     24000000
   ],
   "tile_list": [
@@ -19,6 +17,16 @@
     "6x4"
   ],
   "videos_list": {
+    "om_nom": {
+      "filename": "om_nom_4320x2160_30.yuv",
+      "time": "0:10"
+    },
+    "rollercoaster": {
+      "filename": "rollercoaster_4320x2160_30.yuv",
+      "time": "1:30"
+    }
+  },
+  "backup_videos_list": {
     "surf": {
       "filename": "surf_4320x2160_30.yuv",
       "time": "1:04"
@@ -91,5 +99,5 @@
       "filename": "venice_4320x2160_30.yuv",
       "time": "0:05"
     }
-  }
+  }  
 }
