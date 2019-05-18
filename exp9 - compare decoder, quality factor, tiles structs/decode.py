@@ -41,10 +41,6 @@ def decode():
         (video.decoder, video.name, video.tile_format, video.factor, multithread) = factors
 
         video.dectime_base = f'dectime_{video.decoder}'
-
-        # Ignore
-        if video.name not in ('om_nom', 'lions', 'pac_man', 'rollercoaster'): continue
-
         for video.quality in getattr(config, f'{video.factor}_list'):
             util.decode(video=video, multithread=multithread)
 
