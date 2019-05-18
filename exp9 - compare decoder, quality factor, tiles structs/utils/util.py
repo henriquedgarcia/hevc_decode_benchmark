@@ -79,9 +79,11 @@ class Atribs:
         self.sl = ''  # OK
         self.config = None
         self.program = ''
+        self.threads = ''
 
         # Streaming params
         self.factor = ''
+        self.quality_list = []
         self.quality = 0
 
         # video properties
@@ -95,11 +97,12 @@ class Atribs:
         self.tile_w = 0
         self.tile_h = 0
         self.number_tiles = 0
+        self.tile = 0
+        self.chunk = 0
 
         # file properties
         self.project = ''  # OK
         self.name = ''  # OK
-
         self._basename = ''
 
         self.yuv = ''  # OK
