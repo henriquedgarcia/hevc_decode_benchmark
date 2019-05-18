@@ -5,9 +5,6 @@ from utils import util
 
 
 def main():
-    ignore = ('surf', 'om_nom', 'lions', 'rollercoaster', 'pac_man', 'clans', 'super_mario', 'ski', 'jaws',
-              'maldives', 'elephants', 'ninja_turtles', 'angels_fall', 'lion_king', 'pluto', 'ball', 'manhattan',
-              'venice')
 
     config = util.Config('config.json')
     dectime = util.collect_data(config=config, project='kvazaar', decoder='mp4client', ignore=ignore)
