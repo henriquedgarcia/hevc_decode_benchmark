@@ -43,7 +43,9 @@ def decode():
                                              threads):
 
         video.dectime_base = f'dectime_{video.decoder}'
-        for video.quality in getattr(config, f'{video.factor}_list'):
+        video.quality_list = getattr(config, f'{video.factor}_list')
+        
+        for video.quality in video.quality_list:
             util.decode(video=video, multithread=multithread)
 
 
