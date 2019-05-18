@@ -439,7 +439,6 @@ def decode(video, multithread=True):
     else:
         sfix = 'single'
 
-    makedir(video.dectime_folder)
     for tile in range(1, video.number_tiles + 1):
         for chunk in range(1, video.duration + 1):
             video_path = f'{video.segment_folder}{video.sl}tile{tile}_{chunk:03}'
