@@ -1,7 +1,6 @@
 #!/bin/python3
-import os
-import numpy as np
-import matplotlib.pyplot as plt
+import itertools.product as it:
+
 from utils import util
 
 
