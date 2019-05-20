@@ -29,18 +29,56 @@ class Config:
             setattr(self, key, config_data[key])
 
 
-class GraphsMaker:
-    class Legend(str):
+class Graph:
+    class Plot:
+        def __init__(self, legend, y=None, x=None, y_label='', x_label=''):
+            if y is None:
+                y = [0]
+            if x is None:
+                x = list(range(len(y)))
+
+            self.legend = legend
+            self.x = x
+            self.y = y
+            self.x_label = x_label
+            self.y_label = y_label
+
+    def __init__(self, title, x_label, y_label):
+        self.title = title
+        self.x_label = x_label
+        self.y_label = y_label
+        self.plots = []
+
+    def plot(self, legend, y, x=None):
+        plot = Graph.Plot(legend, y=y, x=x)
+        self.plots.append(plot)
+        return plot
+
+    def show(self):
+        plt.close()
+        self._make_graph()
+        plt.show()
         pass
 
-    class Label(str):
-        pass
+    def _make_graph(self):
+        plot = Graph.Plot('')
+        for plot in self.plots:
+            x = plot.x
+            y = plot.y
+            plt.plot(x, y, label=plot.legend)
 
-    class Title(str):
-        pass
+        plt.xlabel(plot.x_label)
+        plt.ylabel(plot.y_label)
+        plt.title(self.title)
+        plt.ylim(bottom=0)
+        plt.legend(loc='upper left', bbox_to_anchor=(1.01, 1.0))
+        plt.tight_layout()
 
-    class AxisData(list):
-        pass
+    def save(self, filename: str):
+        self._make_graph()
+        plt.savefig(filename, dpi=100)
+
+
 class VideoSegment:
     class AutoDict(dict):
         def __missing__(self, key):
