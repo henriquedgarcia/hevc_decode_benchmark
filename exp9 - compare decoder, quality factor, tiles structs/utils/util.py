@@ -4,6 +4,7 @@ import os
 import platform
 import subprocess
 import time
+import matplotlib.pyplot as plt
 
 
 # Minhas classes
