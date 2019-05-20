@@ -70,9 +70,6 @@ def stats():
         video_seg.factor = factors[3]
         video_seg.multithread = factors[4]
 
-        # Ignore
-        if video_seg.name not in ('om_nom', 'lions', 'pac_man', 'rollercoaster'):
-            continue
 
         for video_seg.quality in getattr(config, f'{video_seg.factor}_list'):
             times = util.collect_data(video_seg=video_seg)
