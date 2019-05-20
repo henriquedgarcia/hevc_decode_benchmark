@@ -69,6 +69,7 @@ def stats():
         video_seg.fmt = factors[2]
         video_seg.factor = factors[3]
         video_seg.multithread = factors[4]
+        video_seg.dectime_base = f'dectime_{video_seg.decoder}'
         video_seg.quality_list = getattr(config, f'{video_seg.factor}_list')
 
         for video_seg.quality in video_seg.quality_list:

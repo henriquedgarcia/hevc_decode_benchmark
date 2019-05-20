@@ -610,7 +610,6 @@ def _run_bench(command, log_path, ext, overwrite=True, log_mode='a'):
 
 # Funções para estatística
 def collect_data(video_seg: VideoSegment):
-    video_seg.dectime_base = f'{video_seg.decoder}_dectime'
 
     if video_seg.decoder in 'ffmpeg':
         video_seg.bench_stamp = 'bench: utime'
