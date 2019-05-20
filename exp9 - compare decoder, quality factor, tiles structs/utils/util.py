@@ -85,7 +85,9 @@ class VideoSegment:
             value = self[key] = type(self)()
             return value
 
-    def __init__(self, config: Config, dectime: dict = {}):
+    def __init__(self, config: Config, dectime: dict = None):
+        if dectime is None:
+            dectime = {}
         self.sl = check_system()['sl']
         self.config = config
         self.m = self.n = self.num_tiles = 0
