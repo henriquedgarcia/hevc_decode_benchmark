@@ -1,6 +1,5 @@
 #!/bin/python3
-import itertools.product as it:
-
+from itertools import product as it
 from utils import util
 
 
