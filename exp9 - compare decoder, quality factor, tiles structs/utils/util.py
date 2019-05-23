@@ -645,12 +645,12 @@ def collect_data(video_seg: VideoSegment):
         video_seg.chunk = segments[1]
 
         if os.path.isfile(f'{video_seg.segment_path}.mp4'):
-            video_seg.size = os.path.getsize(f'{video_seg.segment_path}.mp4')
             print(f'Processing {video_seg.segment_path}.mp4')
+            video_seg.size = os.path.getsize(f'{video_seg.segment_path}.mp4')
 
         if os.path.isfile(f'{video_seg.log_path}.txt'):
-            video_seg.times = _get_times(video_seg)
             print(f'Processing {video_seg.log_path}.txt')
+            video_seg.times = _get_times(video_seg)
     return dict(video_seg.dectime)
 
 
