@@ -656,25 +656,37 @@ def collect_data(video_seg: VideoSegment):
 
 def _get_times(dectime: VideoSegment) -> list:
     times = []
+    bench_time = {'ut': [],
+                  'st': [],
+                  'rt': []}
+
     with open(f'{dectime.log_path}.txt', 'r') as f:
-        for line in f:
-            idx = line.find(dectime.bench_stamp)
-            if idx >= 0:
-                if dectime.decoder in 'ffmpeg':
+        if dectime.decoder in 'ffmpeg':
+            for line in f:
+                idx = line.find(dectime.bench_stamp)
+                if idx >= 0:
                     line = line[:-1]
                     ut = line.split(' ')[1]
                     st = line.split(' ')[2]
                     rt = line.split(' ')[3]
-                    bench_time = dict(ut=float(ut[6:-1]),
-                                      st=float(st[6:-1]),
-                                      rt=float(rt[6:-1]))
-                    times.append(bench_time)
-                elif dectime.decoder in 'mp4client':
-                    bench_time = float(dectime.fps) / float(line.split(' ')[4])
-                else:
-                    exit('[_get_times] ')
 
-                times.append(bench_time)
+                    bench_time['ut'].append(float(ut[6:-1]))
+                    bench_time['st'].append(float(st[6:-1]))
+                    bench_time['rt'].append(float(rt[6:-1]))
+            bench_time['ut'] = np.average(bench_time['ut'])
+            bench_time['st'] = np.average(bench_time['st'])
+            bench_time['rt'] = np.average(bench_time['rt'])
+            times = bench_time
+
+        elif dectime.decoder in 'mp4client':
+            for line in f:
+                idx = line.find(dectime.bench_stamp)
+                if idx >= 0:
+                    times.append(float(dectime.fps) / float(line.split(' ')[4]))
+            times = np.average(times)
+
+        else:
+            exit('[_get_times] decoder só pode ser "mp4client" ou "ffmpeg".')
     return times
 
 
