@@ -42,9 +42,6 @@ def encode():
         video.tile_format = factors[2]
         video.factor = factors[3]
 
-        # Ignore
-        if video.name not in ('om_nom', 'lions', 'pac_man', 'rollercoaster'): continue
-
         # Para cada qualidade
         for video.quality in getattr(config, f'{video.factor}_list'):
             util.encode(video)
