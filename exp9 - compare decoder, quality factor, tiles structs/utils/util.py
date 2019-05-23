@@ -441,8 +441,8 @@ def _encode_ffmpeg(video):
         exit('Fator de qualidade só pode ser "qp" ou "rate"')
 
     tile_count = 0
-    for x in range(0, video.width, video.tile_w):
-        for y in range(0, video.height, video.tile_h):
+    for y in range(0, video.height, video.tile_h):
+        for x in range(0, video.width, video.tile_w):
             tile_count += 1
             video.mp4_video = f'{video.mp4_folder}{video.sl}tile{tile_count}'
 
