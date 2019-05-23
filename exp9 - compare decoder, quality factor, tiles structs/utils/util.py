@@ -32,12 +32,15 @@ class Config:
 
 class Graph:
     class Plot:
-        def __init__(self, legend, y=None, x=None, y_label='', x_label=''):
+        def __init__(self, legend, y=None, x=None, y_label='', x_label='', bar_space=0.8, bottom=None, align='center'):
             if y is None:
                 y = [0]
             if x is None:
                 x = list(range(len(y)))
 
+            self.bar_space = bar_space
+            self.bottom = bottom
+            self.align = align
             self.legend = legend
             self.x = x
             self.y = y
@@ -50,16 +53,44 @@ class Graph:
         self.y_label = y_label
         self.plots = []
 
-    def plot(self, legend, y, x=None):
-        plot = Graph.Plot(legend, y=y, x=x)
+    def plot(self, legend, y, x=None, bar_space=0.8, bottom=None, align='center'):
+        plot = Graph.Plot(legend, y=y, x=x, bar_space=bar_space, bottom=bottom, align=align)
         self.plots.append(plot)
         return plot
 
-    def show(self):
+    def show_bar(self):
+        plt.close()
+        self._make_bars()
+        plt.show()
+        pass
+
+    def show_plot(self):
         plt.close()
         self._make_graph()
         plt.show()
         pass
+
+    def _make_bars(self):
+        width = self.plots[0].bar_space / len(self.plots)
+        fst_pos = -(0.8 - width) / 2
+        shift = 0
+
+        for plot in self.plots:
+            x = np.array(range(len(plot.y))) - fst_pos
+            plt.bar(x + shift,
+                    plot.y,
+                    label=plot.legend,
+                    width=plot.width,
+                    bottom=plot.botton,
+                    align=plot.align)
+
+            shift += width
+            plt.xlabel(plot.x_label)
+            plt.ylabel(plot.y_label)
+            plt.title(self.title)
+            plt.ylim(bottom=0)
+            plt.legend(loc='upper left', bbox_to_anchor=(1.01, 1.0))
+            plt.tight_layout()
 
     def _make_graph(self):
         plot = Graph.Plot('')
@@ -75,8 +106,12 @@ class Graph:
         plt.legend(loc='upper left', bbox_to_anchor=(1.01, 1.0))
         plt.tight_layout()
 
-    def save(self, filename: str):
+    def save_plot(self, filename: str):
         self._make_graph()
+        plt.savefig(filename, dpi=100)
+
+    def save_bar(self, filename: str):
+        self._make_bars()
         plt.savefig(filename, dpi=100)
 
 
