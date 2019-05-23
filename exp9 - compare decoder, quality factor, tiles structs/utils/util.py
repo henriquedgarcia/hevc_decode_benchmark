@@ -190,38 +190,24 @@ class VideoSegment:
 
     @property
     def size(self):
-        size = self.dectime[self.decoder][self.name][self.fmt][self.factor][self.quality][self.tile][self.chunk][
-            self.multithread]['size']
+        size = self.dectime[self.decoder][self.name][self.fmt][self.factor][str(self.quality)][str(self.tile)][
+            str(self.chunk)][self.thread]['size']
         return size
 
     @size.setter
     def size(self, value):
-        self.dectime[self.decoder][self.name][self.fmt][self.factor][self.quality][self.tile][self.chunk][
-            self.multithread]['size'] = value
+        self.dectime[self.decoder][self.name][self.fmt][self.factor][str(self.quality)][str(self.tile)][
+            str(self.chunk)][self.thread]['size'] = value
 
     @property
     def times(self):
-        return self.dectime[self.decoder][self.name][self.fmt][self.factor][self.quality][self.tile][self.chunk][
-            self.multithread]['times']
+        return self.dectime[self.decoder][self.name][self.fmt][self.factor][str(self.quality)][str(self.tile)][
+            str(self.chunk)][self.thread]['times']
 
     @times.setter
     def times(self, value):
-        times = self.dectime[self.decoder][self.name][self.fmt][self.factor][self.quality][self.tile][self.chunk][
-            self.multithread]['times']
-        if not times:
-            self.dectime[self.decoder][self.name][self.fmt][self.factor][self.quality][self.tile][self.chunk][
-                self.multithread]['times'] = [value]
-        else:
-            self.dectime[self.decoder][self.name][self.fmt][self.factor][self.quality][self.tile][self.chunk][
-                self.multithread]['times'].extend(value)
-
-    @property
-    def multithread(self):
-        return self._multithread
-
-    @multithread.setter
-    def multithread(self, value):
-        self._multithread = value
+        self.dectime[self.decoder][self.name][self.fmt][self.factor][str(self.quality)][str(self.tile)][
+            str(self.chunk)][self.thread]['times'] = value
 
     @property
     def fmt(self):
