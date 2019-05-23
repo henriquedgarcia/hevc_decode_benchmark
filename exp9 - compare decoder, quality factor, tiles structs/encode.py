@@ -28,10 +28,10 @@ def encode():
                              dectime_base='dectime')
 
     # Cria um iterador produto carnesiano de todos os parametros da caracterização
-    my_iterator = itertools.product(['kvazaar', 'ffmpeg'],
+    my_iterator = itertools.product(['ffmpeg'],
                                     config.videos_list,
                                     config.tile_list,
-                                    ['rate', 'qp'])
+                                    ['rate'])
 
     # Itera sobre o iterador
     for factors in my_iterator:
