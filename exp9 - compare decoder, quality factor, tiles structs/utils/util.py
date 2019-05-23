@@ -152,7 +152,7 @@ class VideoSegment:
         self.quality = 0
         self.tile = 0
         self.chunk = 0
-        self._multithread = ''
+        self.thread = ''
 
     @property
     def basename(self):
@@ -184,7 +184,7 @@ class VideoSegment:
                           f'{self.dectime_base}{self.sl}'
                           f'{self.basename}{self.sl}'
                           f'tile{self.tile}_{self.chunk:03}_'
-                          f'{self.multithread}')
+                          f'{self.thread}')
 
         return self._log_path
 
