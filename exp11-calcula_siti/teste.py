@@ -1,13 +1,17 @@
-from SITI import siti
 import glob
+
+from SITI import siti
+from utils import util
+
+sl = util.check_system()['sl']
 
 
 def main():
-    for video in glob.glob('om_nom*.mp4'):
-        siti.siti(filename=video, num_frames=300)
-    #
-    siti.multi_plot('*.csv', output_folder='graph3-om_nom')
-    # siti.single_plot('*.csv', output_folder='graph3-om_nom')
+    #for video in glob.glob(f'..{sl}yuv-full{sl}*.mp4'):
+    #    siti.siti(filename=video)
+
+    siti.multi_plot(f'..{sl}yuv-full{sl}*.csv', output_folder='todos_os_videos_ate_agora')
+    siti.single_plot(f'..{sl}yuv-full{sl}*.csv', output_folder='todos_os_videos_ate_agora')
 
 
 if __name__ == "__main__":
