@@ -5,6 +5,7 @@ from itertools import product
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+
 from utils import util
 
 sl = util.check_system()['sl']
@@ -15,6 +16,7 @@ def main():
     # graph1()
     # graph2()
     # graph3()
+    # graph4 (decodificação por vídeo 1x1 variando qualidade)
     hist()
     pass
 
