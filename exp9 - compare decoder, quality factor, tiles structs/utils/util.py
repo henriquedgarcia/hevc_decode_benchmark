@@ -362,9 +362,11 @@ def _encode_ffmpeg(video):
                       f':qpmax={video.quality}"')
     elif video.factor in 'rate':
         rate = int(video.quality / video.number_tiles)
-        param_out = f'-b:v {rate} {param_out}'
+        param_out = f'-b:v {rate} {param_out}"'
+    elif video.factor in 'crf':
+        param_out = f'-crf {video.quality} -tune psnr {param_out}"'
     else:
-        exit('Fator de qualidade só pode ser "qp" ou "rate"')
+        exit('Fator de qualidade só pode ser "qp" ou "rate" ou crf.')
 
     tile_count = 0
     for x in range(0, video.width, video.tile_w):
@@ -387,6 +389,10 @@ def _encode_ffmpeg(video):
             elif video.factor in 'qp':
                 command = f'{video.program} {global_params} {param_in} {param_out} {filter_params} {video.mp4_video}.mp4'
                 run(command, f'{video.mp4_video}', 'mp4')
+
+            elif video.factor in 'crf':
+                command = f'{video.program} {global_params} {param_in} {param_out} {filter_params} {video.mp4_video}.mp4'
+                run(command, f'{video.mp4_video}', 'mp4', overwrite=True)
 
 
 def _encode_kvazaar(video: VideoParams):
