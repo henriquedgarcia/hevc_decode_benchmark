@@ -9,24 +9,19 @@
   ],
   "rate_list": [
     2000000,
+    8000000,
+    16000000,
     24000000
   ],
   "tile_list": [
     "1x1",
     "3x2",
-    "6x4"
+    "6x4",
+    "12x8"
   ],
-  "videos_list": {
-    "om_nom": {
-      "filename": "om_nom_4320x2160_30.yuv",
-      "time": "0:10"
-    },
-    "rollercoaster": {
-      "filename": "rollercoaster_4320x2160_30.yuv",
-      "time": "1:30"
-    }
-  },
   "backup_videos_list": {
+  },
+  "videos_list": {
     "surf": {
       "filename": "surf_4320x2160_30.yuv",
       "time": "1:04"
@@ -75,7 +70,7 @@
       "filename": "ninja_turtles_4320x2160_30.yuv",
       "time": "0:00"
     },
-    "angels_fall": {
+    "angel_falls": {
       "filename": "angels_fall_4320x2160_30.yuv",
       "time": "0:25"
     },
@@ -87,8 +82,8 @@
       "filename": "pluto_4320x2160_30.yuv",
       "time": "0:00"
     },
-    "ball": {
-      "filename": "ball_4320x2160_30.yuv",
+    "masquerade_ball": {
+      "filename": "masquerade_ball_4320x2160_30.yuv",
       "time": "0:18"
     },
     "manhattan": {
@@ -99,5 +94,5 @@
       "filename": "venice_4320x2160_30.yuv",
       "time": "0:05"
     }
-  }  
+  }
 }
