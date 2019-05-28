@@ -11,12 +11,22 @@
     2000000,
     24000000
   ],
+  "crf_list": [
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45
+  ],
   "tile_list": [
     "1x1",
     "3x2",
-    "6x4"
+    "6x4",
+    "12x8"
   ],
-  "videos_list": {
+  "backup_videos_list": {
     "om_nom": {
       "filename": "om_nom_4320x2160_30.yuv",
       "time": "0:10"
@@ -26,7 +36,7 @@
       "time": "1:30"
     }
   },
-  "backup_videos_list": {
+  "videos_list": {
     "surf": {
       "filename": "surf_4320x2160_30.yuv",
       "time": "1:04"
