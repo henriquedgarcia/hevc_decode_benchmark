@@ -32,5 +32,8 @@ yuv-10s/
 yuv-full/
 yuv-cropped/
 yuv/
+video_frames/
+*.pyc
+
 tools/gpac_extra_libs/*
 tools/gpac_extra_libs.zip
