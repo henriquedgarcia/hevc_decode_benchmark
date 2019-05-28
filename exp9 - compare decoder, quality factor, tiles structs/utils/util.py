@@ -340,7 +340,7 @@ def encode(video: VideoParams):
 
 
 def _encode_ffmpeg(video):
-    global_params = '-hide_banner -y'
+    global_params = '-hide_banner -y -psnr'
     param_in = (f'-s {video.scale} '
                 f'-framerate {video.fps} '
                 f'-i {video.yuv_video}')
@@ -351,6 +351,7 @@ def _encode_ffmpeg(video):
                  f':min-keyint={video.gop}'
                  f':open-gop=0'
                  f':info=0'
+                 f':psnr=1'
                  f':temporal-layers=0'
                  f':temporal-mvp=0'
                  f':log-level=3')
