@@ -10,7 +10,7 @@ import itertools
 from utils import util
 
 
-def main(argv):
+def main():
     encode()
 
 
@@ -54,6 +54,4 @@ def encode():
 
 
 if __name__ == '__main__':
-    import sys
-
-    main(sys.argv)
+    main()
