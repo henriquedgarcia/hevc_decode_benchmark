@@ -15,7 +15,43 @@ def main():
     # graph1()
     # graph2()
     # graph3()
+    hist()
     pass
+
+
+def hist():
+    """
+    Fazer um histograma para cada fator que estamos avaliando
+    qualidade: 2000 kbps, 24000 kbps
+    fmt: 1x1, 3x2, 6x4
+    video: om_nom e rollercoaster
+    Total: 2 x 3 x 2 = 12 histogramas
+
+    :return:
+    """
+    config = util.Config('Config.json')
+    dectime = util.load_json('times.json')
+
+    factors = (['om_nom', 'rollercoaster'],
+               ['1x1', '3x2', '6x4'],
+               [2000000, 24000000])
+
+    # for name, fmt, quality in product(*factors):
+    #     m, n = list(map(int, fmt.split('x')))
+    #
+    #     factors = (list(range(1, m * n + 1)),
+    #                list(range(1, config.duration + 1)))
+    #     times = []
+    #     for tile, chunk in product(*factors):
+    #         times.append(dectime['ffmpeg'][name][fmt]['rate'][str(quality)][str(tile)][str(chunk)]['single']['times']['ut'])
+
+    times = [[dectime['ffmpeg'][name][fmt]['rate'][str(quality)][str(tile)][str(chunk)]['single']['times']['ut']
+              for (tile, chunk) in
+              product(list(range(1, list(map(int, fmt.split('x')))[0] * list(map(int, fmt.split('x')))[1] + 1)),
+                      list(range(1, config.duration + 1)))]
+             for (name, fmt, quality) in
+             product(*factors)]
+
 
 def graph3() -> None:
     """
