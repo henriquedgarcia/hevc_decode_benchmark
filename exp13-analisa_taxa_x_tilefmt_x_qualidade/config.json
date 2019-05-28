@@ -1,0 +1,91 @@
+{
+  "scale": "4320x2160",
+  "fps": 30,
+  "gop": 30,
+  "duration": 1,
+  "crf_list": [
+    10,
+    20,
+    30,
+    40,
+    50
+  ],
+  "tile_list": [
+    "1x1",
+    "5x5"
+  ],
+  "videos_list": {
+    "surf": {
+      "filename": "surf_4320x2160_30.yuv",
+      "time": "1:04"
+    },
+    "om_nom": {
+      "filename": "om_nom_4320x2160_30.yuv",
+      "time": "0:10"
+    },
+    "lions": {
+      "filename": "lions_4320x2160_30.yuv",
+      "time": "0:07"
+    },
+    "rollercoaster": {
+      "filename": "rollercoaster_4320x2160_30.yuv",
+      "time": "1:30"
+    },
+    "pac_man": {
+      "filename": "pac_man_4320x2160_30.yuv",
+      "time": "0:20"
+    },
+    "clans": {
+      "filename": "clans_4320x2160_30.yuv",
+      "time": "0:00"
+    },
+    "super_mario": {
+      "filename": "super_mario_4320x2160_30.yuv",
+      "time": "0:05"
+    },
+    "ski": {
+      "filename": "ski_4320x2160_30.yuv",
+      "time": "0:40"
+    },
+    "jaws": {
+      "filename": "jaws_4320x2160_30.yuv",
+      "time": "1:49"
+    },
+    "maldives": {
+      "filename": "maldives_4320x2160_30.yuv",
+      "time": "0:07"
+    },
+    "elephants": {
+      "filename": "elephants_4320x2160_30.yuv",
+      "time": "1:00"
+    },
+    "ninja_turtles": {
+      "filename": "ninja_turtles_4320x2160_30.yuv",
+      "time": "0:00"
+    },
+    "angel_falls": {
+      "filename": "angels_fall_4320x2160_30.yuv",
+      "time": "0:25"
+    },
+    "lion_king": {
+      "filename": "Lion_king_4320x2160_30.yuv",
+      "time": "2:08"
+    },
+    "pluto": {
+      "filename": "pluto_4320x2160_30.yuv",
+      "time": "0:00"
+    },
+    "masquerade_ball": {
+      "filename": "masquerade_ball_4320x2160_30.yuv",
+      "time": "0:18"
+    },
+    "manhattan": {
+      "filename": "manhattan_4320x2160_30.yuv",
+      "time": "1:31"
+    },
+    "venice": {
+      "filename": "venice_4320x2160_30.yuv",
+      "time": "0:05"
+    }
+  }
+}
