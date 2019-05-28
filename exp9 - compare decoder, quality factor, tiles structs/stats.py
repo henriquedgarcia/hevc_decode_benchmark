@@ -65,7 +65,7 @@ def graph3() -> None:
     dectime = util.load_json('times.json')
 
     # decoders = ['ffmpeg', 'mp4client']
-    factors = ['rate', 'qp']
+    factors = ['rate']
     threads = ['single']
 
     # for decoder in decoders:
@@ -143,7 +143,7 @@ def graph2() -> None:
     dectime = util.load_json('times.json')
 
     # decoders = ['ffmpeg', 'mp4client']
-    factors = ['rate', 'qp']
+    factors = ['rate']
     threads = ['single']
 
     # for decoder in decoders:
@@ -154,7 +154,7 @@ def graph2() -> None:
                 for fmt in config.tile_list:
                     m, n = list(map(int, fmt.split('x')))
                     plt.close()
-                    fig, ax = plt.subplots(2, 1, figsize=(8, 5))
+                    fig, ax = plt.subplots(2, 1, figsize=(10, 5))
 
                     quality_list = getattr(config, f'{factor}_list')
                     offset = 0
@@ -218,7 +218,7 @@ def graph1() -> None:
     dectime = util.load_json('times.json')
 
     # decoders = ['ffmpeg', 'mp4client']
-    factors = ['rate', 'qp']
+    factors = ['rate']
     threads = ['single']
 
     # for decoder in decoders:
