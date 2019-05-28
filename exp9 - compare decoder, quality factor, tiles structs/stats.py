@@ -194,46 +194,46 @@ def graph1() -> None:
                     for fmt in config.tile_list:
                         m, n = list(map(int, fmt.split('x')))
                         plt.close()
-                        fig, ax = plt.subplots(2, 2, figsize=(16, 6))
+                        fig, ax = plt.subplots(1, 2, figsize=(18, 6))
 
                         for tile in range(1, m * n + 1):
                             size = []
                             time_ffmpeg = []
-                            time_mp4client = []
+                            # time_mp4client = []
 
                             for chunk in range(1, config.duration + 1):
                                 size.append(dectime['ffmpeg'][name][fmt][factor][str(quality)][str(tile)][str(chunk)][thread]['size'])
                                 time_ffmpeg.append(dectime['ffmpeg'][name][fmt][factor][str(quality)][str(tile)][str(chunk)][thread]['times']['ut'])
-                                time_mp4client.append(dectime['mp4client'][name][fmt][factor][str(quality)][str(tile)][str(chunk)][thread]['times'])
+                                # time_mp4client.append(dectime['mp4client'][name][fmt][factor][str(quality)][str(tile)][str(chunk)][thread]['times'])
 
-                            ax[0][0].plot(time_ffmpeg, label=f'ffmpeg_tile={tile}_ffmpeg')
-                            ax[0][1].plot(time_mp4client, label=f'tile={tile}')
-                            ax[1][0].plot(size, label=f'tile={tile}')
-                            ax[1][1].plot(time_ffmpeg, label=f'ffmpeg_tile={tile}_ffmpeg')
-                            ax[1][1].plot(time_mp4client, label=f'mp4client_tile={tile}_mp4client')
+                            ax[0].plot(time_ffmpeg, label=f'ffmpeg_tile={tile}_ffmpeg')
+                            # ax[0][1].plot(time_mp4client, label=f'tile={tile}')
+                            ax[1].plot(size, label=f'tile={tile}')
+                            # ax[1][1].plot(time_ffmpeg, label=f'ffmpeg_tile={tile}_ffmpeg')
+                            # ax[1][1].plot(time_mp4client, label=f'mp4client_tile={tile}_mp4client')
 
                         quality_ind = quality
                         if factor in 'rate':
                             quality_ind = int(quality / (m * n))
 
-                        ax[0][0].set_xlabel('Chunks')
-                        ax[0][1].set_xlabel('Chunks')
-                        ax[1][0].set_xlabel('Chunks')
-                        ax[1][1].set_xlabel('Chunks')
-                        ax[0][0].set_ylabel('Time')
-                        ax[0][1].set_ylabel('Time')
-                        ax[1][1].set_ylabel('Time')
-                        ax[1][0].set_ylabel('Rate')
-                        ax[0][0].set_title(f'ffmpeg - {name} - Times by chunks, tile={fmt}, {factor}={quality_ind}')
-                        ax[0][1].set_title(f'mp4client {name} - Times by chunks, tile={fmt}, {factor}={quality_ind}')
-                        ax[1][0].set_title(f'{name} - Rates by chunks, tile={fmt}, {factor}={quality_ind}')
-                        ax[1][1].set_title(f'mp4client x ffmpeg - {name} - Times by chunks, tile={fmt}, {factor}={quality_ind}')
+                        ax[0].set_xlabel('Chunks')
+                        # ax[0][1].set_xlabel('Chunks')
+                        ax[1].set_xlabel('Chunks')
+                        # ax[1][1].set_xlabel('Chunks')
+                        ax[0].set_ylabel('Time')
+                        # ax[0][1].set_ylabel('Time')
+                        # ax[1][1].set_ylabel('Time')
+                        ax[1].set_ylabel('Rate')
+                        ax[0].set_title(f'ffmpeg - {name} - Times by chunks, tile={fmt}, {factor}={quality_ind}')
+                        # ax[0][1].set_title(f'mp4client {name} - Times by chunks, tile={fmt}, {factor}={quality_ind}')
+                        ax[1].set_title(f'{name} - Rates by chunks, tile={fmt}, {factor}={quality_ind}')
+                        # ax[1][1].set_title(f'mp4client x ffmpeg - {name} - Times by chunks, tile={fmt}, {factor}={quality_ind}')
                         # ax[0].set_ylim(bottom=0)
                         # ax[1].set_ylim(bottom=0)
-                        ax[1][0].set_ylim(bottom=0)
-                        ax[1][1].set_ylim(bottom=0)
-                        ax[0][1].legend(loc='upper left', ncol=2, bbox_to_anchor=(1.01, 1.0))
-                        # ax[1][1].legend(loc='upper left', ncol=2, bbox_to_anchor=(1.01, 1.0))
+                        ax[1].set_ylim(bottom=0)
+                        # ax[1][1].set_ylim(bottom=0)
+                        # ax[0][1].legend(loc='upper left', ncol=2, bbox_to_anchor=(1.01, 1.0))
+                        ax[1].legend(loc='upper left', ncol=2, bbox_to_anchor=(1.01, 1.0))
                         plt.tight_layout()
                         # plt.()
                         os.makedirs(dirname, exist_ok=True)
