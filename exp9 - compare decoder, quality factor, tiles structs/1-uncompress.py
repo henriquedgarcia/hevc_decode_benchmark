@@ -1,24 +1,21 @@
-from ../utils import util, video_param
+from utils import util
+import subprocess
 
-config = video_param.VideoParams.load_json('config.json')
+config = util.Config('config.json')
+system = util.check_system()
+sl = system['sl']
+program = system['ffmpeg']
 
 
 def main():
-    # videos = util.list_videos('input.json')
+    for name in config.videos_list:
+        params_in = (f'-n -v quiet -stats -ss {config.videos_list[name]["time"]} '
+                     f'-i ..{sl}original{sl}{name}.mp4')
+        params_out = (f'-t 60 -r 30 -s 4160x2080 -crf 17 '
+                      f'..{sl}yuv-full{sl}{name}.mp4')
 
-    videos = {'rollercoaster': 0,
-              'lions': 0}
-
-    for i in range(10):
-        for project in ['kvazaar', 'ffmpeg']:
-            v = video_param.VideoParams(project=project, scale=config['scale'], fps=config['fps'], gop=config['gop'],
-                                        duration=config['duration'], yuv='yuv-10s', hevc='hevc', mp4='mp4',
-                                        segment='segment', dectime='dectime')
-
-            for v.name in config['videos_list']:
-                for v.tile_format in config['tile_list']:
-                    for v.rate in config['rate_list']:
-                        util.decode(video=v, decoder='mp4client', factor='qp', multithread=False)
+        print(f'{program} {params_in} {params_out}')
+        subprocess.run(f'{program} {params_in} {params_out}', shell=True)
 
 
 if __name__ == '__main__':
