@@ -4,6 +4,7 @@ import os
 import platform
 import subprocess
 import time
+
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -256,10 +257,13 @@ class Atribs:
         self._basename = ''
 
         self.yuv = ''  # OK
+
         self.hevc_base = ''  # OK
         self.mp4_base = ''  # OK
         self.segment_base = ''  # OK
         self.dectime_base = ''  # OK
+
+        self._segment_video = ''
 
         self._yuv_video = ''
         self.hevc_video = ''
@@ -632,7 +636,6 @@ def _run_bench(command, log_path, ext, overwrite=True, log_mode='a'):
 
 # Funções para estatística
 def collect_data(video_seg: VideoSegment):
-
     if video_seg.decoder in 'ffmpeg':
         video_seg.bench_stamp = 'bench: utime'
     elif video_seg.decoder in 'mp4client':
