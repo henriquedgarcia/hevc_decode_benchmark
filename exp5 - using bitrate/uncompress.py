@@ -13,7 +13,7 @@ os.makedirs(f'{yuv_forders}', exist_ok=True)
 
 for name in ['ninja_turtles', 'jaws']:
     start_time = videos[name]
-    par_in = f'-n -hide_banner -ss {start_time} -i {original}{sl}{name}.mp4'
+    par_in = f'-n -hide_banner -ss {start_time} -i ..{sl}{original}{sl}{name}.mp4'
     par_out = f'-t {duration} -r {config["fps"]} -vf scale={config["scale"]} -map 0:0 {yuv_forders}{sl}{name}.yuv'
     command = f'ffmpeg {par_in} {par_out}'
     # os.system(command)
