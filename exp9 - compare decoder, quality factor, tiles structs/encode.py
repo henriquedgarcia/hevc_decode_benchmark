@@ -1,5 +1,4 @@
 #!/bin/env python3
-import itertools
 from utils import util
 
 
@@ -8,42 +7,31 @@ def main():
 
 
 def encode():
-    # Configura os objetos
+    # Configure objetcts
     config = util.Config('config.json')
     sl = util.check_system()['sl']
 
-    # Cria objeto "video" com suas principais pastas
+    # Create video object and your main folders
     video = util.VideoParams(config=config,
-                             yuv=f'..{sl}yuv-10s',
+                             yuv=f'..{sl}yuv-full',
                              hevc_base='hevc',
                              mp4_base='mp4',
                              segment_base='segment',
                              dectime_base='dectime')
 
-    # Cria um iterador produto carnesiano de todos os parametros da caracterização
-    my_iterator = itertools.product(['kvazaar', 'ffmpeg'],
-                                    config.videos_list,
-                                    config.tile_list,
-                                    ['rate', 'qp'])
+    # Set basic configuration
+    video.encoder = 'ffmpeg'
+    video.project = 'ffmpeg_crf_18videos_60s'
+    video.factor = 'crf'
 
-    # Itera sobre o iterador
-    for factors in my_iterator:
-        # Define atributos básicos
-        video.encoder = factors[0]
-        video.project = video.encoder
-        video.name = factors[1]
-        video.tile_format = factors[2]
-        video.factor = factors[3]
-
-        # Ignore
-        if video.name not in ('om_nom', 'lions', 'pac_man', 'rollercoaster'): continue
-
-        # Para cada qualidade
-        for video.quality in getattr(config, f'{video.factor}_list'):
-            util.encode(video)
-            util.encapsule(video)
-            util.extract_tile(video)
-            util.make_segments(video)
+    # iterate over 3 factors: video (complexity), tiles format, quality
+    for video.name in config.videos_list:
+        for video.tile_format in config.tile_list:
+            for video.quality in getattr(config, f'{video.factor}_list'):
+                util.encode(video)
+                # util.encapsule(video)
+                # util.extract_tile(video)
+                util.make_segments(video)
 
 
 if __name__ == '__main__':
