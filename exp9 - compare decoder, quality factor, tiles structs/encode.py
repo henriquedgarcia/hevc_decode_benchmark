@@ -1,11 +1,4 @@
 #!/bin/env python3
-# import sys
-# sys.modules[__name__].__dict__.clear()
-
-# import importlib
-# importlib.reload(modulename)
-
-# Início
 import itertools
 from utils import util
 
