@@ -186,7 +186,7 @@ def graph2() -> None:
                         if factor in 'rate':
                             quality = int(quality / (m * n))
 
-                        ax[0].bar(x, average_time, width=width, yerr=std_time, label=f'quality={quality}_ffmpeg')
+                        ax[0].bar(x, average_time, width=width, yerr=std_time, label=f'quality={quality}_corr={np.corrcoef(x=(average_time, average_size))[1][0]}')
                         ax[1].bar(x, average_size, width=width, yerr=std_size, label=f'quality={quality}_ffmpeg')
 
                     ax[0].set_xlabel('Tile')
