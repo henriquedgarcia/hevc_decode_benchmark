@@ -28,9 +28,9 @@ def decode():
                              yuv=f'..{sl}yuv-10s')
     
     video.project = 'ffmpeg'
-    decoders = ['ffmpeg', 'mp4client']
+    decoders = ['ffmpeg',]
     threads = ['single']  # 'single' or 'multi'
-    factor = ['rate', 'qp']
+    factor = ['rate']
     
     for (video.decoder, 
          video.name, 
