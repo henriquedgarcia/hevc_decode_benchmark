@@ -18,6 +18,7 @@ class Config:
         self.gop = 0
         self.duration = 0
         self.qp_list = []
+        self.crf_list = []
         self.rate_list = []
         self.tile_list = []
         self.videos_list = {}
